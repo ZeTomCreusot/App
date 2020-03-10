@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
                 R.array.tab_assos, android.R.layout.simple_spinner_item);
         monAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         monSpinner.setAdapter(monAdapter);
-
+//test
         // 5) Association de adapter au spinner
         monSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
