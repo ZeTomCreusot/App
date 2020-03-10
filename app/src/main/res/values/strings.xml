@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Beta_projet</string>
+    <string-array name="tab_assos">
+        <item>Salameche</item>
+        <item>Carapuce</item>
+        <item>Bulbizarre</item>
+        <item>Ronflex</item>
+        <item>Magicarpe</item>
+
+
+    </string-array>
+</resources>
