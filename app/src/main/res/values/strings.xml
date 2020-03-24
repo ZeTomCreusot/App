@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Beta_projet</string>
     <string-array name="tab_assos">
-        <item>Salameche</item>
-        <item>Carapuce</item>
-        <item>Bulbizarre</item>
-        <item>Ronflex</item>
-        <item>Magicarpe</item>
+        <item>BDE</item>
+        <item>BDS</item>
+        <item>BDJ</item>
+        <item>Helphi</item>
+        <item>1 Pour Tous</item>
 
 
     </string-array>
