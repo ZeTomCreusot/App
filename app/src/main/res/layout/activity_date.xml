@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fond_nature"
     tools:context=".Date">
 
     <Button
@@ -12,12 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
         android:layout_marginLeft="41dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="282dp"
         android:layout_marginRight="282dp"
-        android:layout_marginBottom="641dp"
-        android:text="Retour"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/btn_retour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

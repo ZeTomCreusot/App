@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         btn = (Button) findViewById(R.id.valider);
 
 
-        btn.setText("Validez");
+       // btn.setText("Validez");
         btn.setOnClickListener(new View.OnClickListener() {
 
 
