@@ -15,7 +15,7 @@ public class Date extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date);
 
-        bouttonretour = (Button) findViewById(R.id.button_retour);
+        bouttonretour = findViewById(R.id.button_retour);
         bouttonretour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
