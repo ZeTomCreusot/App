@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Spinner monSpinner = (Spinner) findViewById(R.id.spinner1);
@@ -53,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
        // btn.setText("Validez");
         btn.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
              public void onClick(View view) {
              System.out.println(produit.getText()); 

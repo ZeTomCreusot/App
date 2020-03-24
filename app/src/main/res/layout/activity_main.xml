@@ -7,6 +7,7 @@
     android:background="@drawable/fond_nature"
     tools:context=".MainActivity">
 
+
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="242dp"
