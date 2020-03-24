@@ -15,6 +15,8 @@ import android.widget.Spinner;
 public class MainActivity extends AppCompatActivity {
     private Button btn;
     private EditText produit;
+    private Button boutonVueAsso;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+        boutonVueAsso = findViewById(R.id.buttonAsso);
+        boutonVueAsso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                visualiser_la_suite_Asso();
+
+            }
+        });
 
         produit = (EditText)findViewById(R.id.Produit);
         btn = (Button) findViewById(R.id.valider);
@@ -66,6 +76,12 @@ public class MainActivity extends AppCompatActivity {
              {
              Intent intent = new Intent(this, Date.class);
              startActivity(intent);
+             }
+
+             private void visualiser_la_suite_Asso()
+             {
+                 Intent intent = new Intent(this, Associations.class);
+                 startActivity(intent);
              }
         }
 
