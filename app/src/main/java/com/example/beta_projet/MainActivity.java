@@ -13,8 +13,8 @@ import android.widget.Spinner;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Button btn;
-
+    private Button boutonProduits;
+    private Button boutonAsso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,24 +22,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        btn = (Button) findViewById(R.id.valider);
-
-
-       // btn.setText("Validez");
-        btn.setOnClickListener(new View.OnClickListener() {
-
-
+        boutonProduits = (Button) findViewById(R.id.produit);
+        boutonProduits.setOnClickListener(new View.OnClickListener() {
             @Override
              public void onClick(View view) {
-            // System.out.println(produit.getText());
-             visualiser_la_suite();
-
+             visualiser_la_suite_Produits();
              }
              });
-             }
-             private void visualiser_la_suite()
+
+        boutonAsso = findViewById(R.id.asso);
+        boutonAsso.setOnClickListener(new View.OnClickListener (){
+            @Override
+            public void onClick(View view){
+                visualiser_la_suite_Asso();
+            }
+        });
+    }
+
+             private void visualiser_la_suite_Produits()
              {
              Intent intent = new Intent(this, Date.class);
+             startActivity(intent);
+             }
+
+             private void visualiser_la_suite_Asso(){
+             Intent intent = new Intent (this, Associations.class);
              startActivity(intent);
              }
         }
