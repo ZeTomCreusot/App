@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Date2 extends AppCompatActivity {
+public class BDE_P extends AppCompatActivity {
     private Button button_retour2;
 
     // creation des references boutons présents dans le layout
@@ -36,7 +36,7 @@ public class Date2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // ovuerture de l'activité AjoutEtudiant
-                Intent intent = new Intent(Date2.this, AjoutEtudiant.class);
+                Intent intent = new Intent(BDE_P.this, AjoutEtudiant.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +46,7 @@ public class Date2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // ovuerture de l'activité AjoutEtudiant
-                Intent intent = new Intent(Date2.this, ListeEtudiants.class);
+                Intent intent = new Intent(BDE_P.this, ListeEtudiants.class);
                 startActivity(intent);
             }
         });
@@ -56,7 +56,7 @@ public class Date2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // ovuerture de l'activité AjoutEtudiant
-                Intent intent = new Intent(Date2.this, SupprimerEtudiant.class);
+                Intent intent = new Intent(BDE_P.this, SupprimerEtudiant.class);
                 startActivity(intent);
             }
         });
