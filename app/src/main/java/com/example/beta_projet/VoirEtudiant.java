@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+
 public class VoirEtudiant extends AppCompatActivity {
     // creation des references boutons et EditText que je vais trouver dans le layout
     // déclaration, sans initialisation
