@@ -9,6 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Helphi_A"></activity>
+        <activity android:name=".ESC_A" />
+        <activity android:name=".Tyrans_A" />
+        <activity android:name=".UPT_A" />
+        <activity android:name=".BDA_A" />
+        <activity android:name=".BDO_A" />
+        <activity android:name=".BDJ_A" />
+        <activity android:name=".BDS_A" />
+        <activity android:name=".BDE_A" />
+        <activity android:name=".VoirEtudiant" />
         <activity android:name=".Helphi_P"></activity>
         <activity android:name=".ESC_P" />
         <activity android:name=".Tyrans_P" />

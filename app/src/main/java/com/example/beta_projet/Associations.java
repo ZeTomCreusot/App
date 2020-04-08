@@ -15,11 +15,22 @@ public class Associations extends AppCompatActivity {
 
     private Button bouttonretour;
     public ListView listeMembresAsso;
+    private Button bouttonsuivant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_associations);
+
+        bouttonsuivant = (Button) findViewById(R.id.boutton_suivant);
+
+        bouttonsuivant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                visualiser_la_suite2();
+
+            }
+        });
 
         bouttonretour = (Button) findViewById(R.id.button_retour);
         bouttonretour.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +65,12 @@ public class Associations extends AppCompatActivity {
     private void visualiser_la_suite()
     {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void visualiser_la_suite2()
+    {
+        Intent intent = new Intent(this, BDA_A.class);
         startActivity(intent);
     }
 
