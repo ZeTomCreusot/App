@@ -14,7 +14,7 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
-    // creation des references boutons que je vais trouver dans le layout
+    // creation des references boutons présents dans le layout
     // déclaration, sans initialisation
     Button boutonAjouteEtudiant;
     Button boutonListeEtudiants;

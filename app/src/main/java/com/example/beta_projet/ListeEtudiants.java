@@ -2,9 +2,27 @@ package com.example.beta_projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ListeEtudiants extends AppCompatActivity {
+    Button boutonRetour;
+    ArrayList<Etudiant> listestudiants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +100,7 @@ public class ListeEtudiants extends AppCompatActivity {
                  **/
                 if (itemView == null) {   // on va creer une case réponse (une ligne du listview ) avec un modele défini dans le fichier
                     // xml main_activity_base_adapter
-                    itemView = LayoutInflater.from(ListeEtudiants.this).inflate(R.layout.cadre_item_de_liste, null);
+                    itemView = LayoutInflater.from(ListeEtudiants.this).inflate(R.layout.cadre_item_2_liste, null);
                 }
 
                 // On récupere les 3 cases (image + zone identite + zone age de ce modele)
@@ -142,7 +160,7 @@ public class ListeEtudiants extends AppCompatActivity {
         // recherche du bouton retour dans le layout
         boutonRetour = findViewById(R.id.bouton_retour);
         // ajout de l'écouteur sur le widget bouton_retour, pour revenir à l'activite précedente
-        boutonRetour.setOnClickListener(new OnClickListener() {
+        boutonRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish(); // on se contente de fermer l'activite. Pas de création d'une activité déja lancée avant
