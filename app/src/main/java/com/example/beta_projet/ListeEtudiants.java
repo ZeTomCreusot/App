@@ -24,6 +24,9 @@ public class ListeEtudiants extends AppCompatActivity {
     Button boutonRetour;
     ArrayList<Etudiant> listestudiants;
 
+    Button boutonRetour;
+    ArrayList<Etudiant> listestudiants;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
                 /* les instructions "classiques" : a la création d'une activité, on appelle le constructeur
