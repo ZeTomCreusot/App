@@ -13,8 +13,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="304dp"
         android:layout_marginEnd="10dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@android:mipmap/sym_def_app_icon" />
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@+id/txt_nom_prenom"
@@ -25,7 +24,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        tools:text="@tools:sample/full_names" />
+        />
 
     <TextView
         android:id="@+id/txt_annee"
@@ -34,8 +33,7 @@
         android:layout_below="@+id/txt_nom_prenom"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        tools:text="@tools:sample/lorem" />
+        android:layout_marginTop="0dp"/>
 
 
 </LinearLayout>
