@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fond_nature"
-    tools:context=".Associations">
+    tools:context=".Date2">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView3"
         android:layout_width="113dp"
         android:layout_height="46dp"
         android:layout_marginStart="258dp"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/epflogo" />
 
     <Button
-        android:id="@+id/button_retour"
+        android:id="@+id/button_retour2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
@@ -32,38 +32,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/ListeMembresAsso"
-        android:layout_width="243dp"
-        android:layout_height="248dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="100dp"
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="209dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="315dp"
+        android:clickable="false"
+        android:text="Produit : "
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#080114"
+        app:fontFamily="cursive"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="286dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="130dp"
+        android:clickable="false"
+        android:text="Association : "
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#080114"
+        app:fontFamily="cursive"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_retour"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Spinner
-        android:id="@+id/spinner_Asso"
-        android:layout_width="137dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="186dp"
-        android:background="@drawable/spinner_test"
-        app:layout_constraintBottom_toTopOf="@+id/ListeMembresAsso"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_retour"
-        app:layout_constraintVertical_bias="0.0" />
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

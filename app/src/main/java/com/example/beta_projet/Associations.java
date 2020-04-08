@@ -40,7 +40,8 @@ public class Associations extends AppCompatActivity {
 
                 String text = spinner_Asso.getSelectedItem().toString();
                 if(text.equals("BDS"))
-                {afficherListeMembres1(); }
+                {
+                    afficherListeMembres1(); }
 
             }
             @Override
