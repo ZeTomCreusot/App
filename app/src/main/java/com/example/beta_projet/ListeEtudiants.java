@@ -24,8 +24,7 @@ public class ListeEtudiants extends AppCompatActivity {
     Button boutonRetour;
     ArrayList<Etudiant> listestudiants;
 
-    Button boutonRetour;
-    ArrayList<Etudiant> listestudiants;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +102,7 @@ public class ListeEtudiants extends AppCompatActivity {
                  **/
                 if (itemView == null) {   // on va creer une case réponse (une ligne du listview ) avec un modele défini dans le fichier
                     // xml main_activity_base_adapter
-                    itemView = LayoutInflater.from(ListeEtudiants.this).inflate(R.layout.cadre_item_2_liste, null);
+                    itemView = LayoutInflater.from(ListeEtudiants.this).inflate(R.layout.cadre_item_de_liste, null);
                 }
 
                 // On récupere les 3 cases (image + zone identite + zone age de ce modele)
