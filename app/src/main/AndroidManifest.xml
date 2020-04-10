@@ -27,7 +27,6 @@
         <activity android:name=".BDO_P" />
         <activity android:name=".BDJ_P" />
         <activity android:name=".BDS_P" />
-        <activity android:name=".VoirEtudiant" />
         <activity android:name=".SupprimerEtudiant" />
         <activity android:name=".ListeEtudiants" />
         <activity android:name=".AjoutEtudiant" />
