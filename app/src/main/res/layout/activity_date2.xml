@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fond_nature"
-    tools:context=".Date2">
+    tools:context=".BDE_P">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -33,21 +33,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="209dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="315dp"
-        android:clickable="false"
-        android:text="Produit : "
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:textColor="#080114"
-        app:fontFamily="cursive"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/textView3"
         android:layout_width="286dp"
         android:layout_height="98dp"
@@ -61,4 +46,35 @@
         app:fontFamily="cursive"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:layout_width="212dp"
+        android:layout_height="179dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="138dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btn_voir_liste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Voir la liste" />
+
+        <Button
+            android:id="@+id/btn_ajout_element"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ajouter un élément" />
+
+        <Button
+            android:id="@+id/btn_supprimer_element"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Supprimer un élément" />
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

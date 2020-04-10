@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Beta_projet</string>
     <string-array name="tab_assos">
+        <item>Choisissez votre association</item>
         <item>BDE</item>
         <item>BDS</item>
         <item>BDJ</item>

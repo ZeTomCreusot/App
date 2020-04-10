@@ -24,8 +24,7 @@ public class ListeEtudiants extends AppCompatActivity {
     Button boutonRetour;
     ArrayList<Etudiant> listestudiants;
 
-    Button boutonRetour;
-    ArrayList<Etudiant> listestudiants;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
