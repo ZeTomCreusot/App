@@ -23,7 +23,7 @@ import java.util.Arrays;
 public class ListeEtudiants extends AppCompatActivity {
     Button boutonRetour;
     ArrayList<Etudiant> listestudiants;
-    ArrayList<Etudiant> listestudiants_2;
+
 
 
 
@@ -64,13 +64,50 @@ public class ListeEtudiants extends AppCompatActivity {
         Gson gson = new Gson(); // on crée un gestionnaire de format json
         // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
         // préférences partagées
-        String listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants", "");
+        String listeEtudiantTxtJson=null;
+
+        if (nomAsso.equals("BDE")) {
+             listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDE", "");
+        }
+        if(nomAsso.equals("BDS"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDS", "");
+        }
+        if(nomAsso.equals("BDJ"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDJ", "");
+        }
+        if(nomAsso.equals("BDA"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDA", "");
+        }
+        if(nomAsso.equals("1 pour Tous"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_UPT", "");
+        }
+        if(nomAsso.equals("BDO"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDO", "");
+        }
+        if(nomAsso.equals("Tyrans"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_Tyrans", "");
+        }
+        if(nomAsso.equals("EPF Sud Conseil"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_ESC", "");
+        }
+        if(nomAsso.equals("Helphi"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_Helphi", "");
+        }
+
         // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
         // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
         Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
         // reconstitution d'une arrayList a partir du tableau tableauEtudiantsTemporaire
         listestudiants = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
-        listestudiants_2 = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
+      //  listestudiants_2 = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
 
         /*****************************************/
         /*** AFFICHAGE DE LA LISTE D'ETUDIANTS ***/

@@ -47,29 +47,37 @@ public class VoirEtudiant extends AppCompatActivity {
         Gson gson = new Gson(); // on crée un gestionnaire de format json
         // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
         // préférences partagées
-        String listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants", "");
-        // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
-        // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
-        Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
+        Intent in=getIntent();
+        Bundle b=in.getExtras();
+        final String nomAsso = (String) b.get("nomAsso");
 
-        // on identifie l'étudiant de la liste qui a l'id qu'on devait afficher.
-        // on le stocke dans une reference etudiantVisualite
-        Etudiant etudiantVisualise = tableauEtudiantsTemporaire[indiceEtudiant];
 
-        /********************************/
-        /*** AFFICHAGE DE L'ETUDIANT  ***/
-        /********************************/
+            String listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants", "");
+            // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
+            // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
+            Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
+            // on identifie l'étudiant de la liste qui a l'id qu'on devait afficher.
+            // on le stocke dans une reference etudiantVisualite
+            Etudiant etudiantVisualise = tableauEtudiantsTemporaire[indiceEtudiant];
 
-        // on a désormais l'objet Etudiant à afficher. le reste est facile :
-        // on associe chaque référence au widget qui nous permettra d'afficher l'étudiant
-        txt_nom_etudiant = findViewById(R.id.txt_nom);
-        txt_prenom_etudiant = findViewById(R.id.txt_prenom);
-        txt_annee_etudiant = findViewById(R.id.txt_annee);
+            /********************************/
+            /*** AFFICHAGE DE L'ETUDIANT  ***/
+            /********************************/
 
-        // on met enfin à jour le texte des widget avec les valeurs issues de etudiantVisualise
-        txt_prenom_etudiant.setText(etudiantVisualise.prenom);
-        txt_nom_etudiant.setText(etudiantVisualise.nom);
-        txt_annee_etudiant.setText(etudiantVisualise.annee);
+            // on a désormais l'objet Etudiant à afficher. le reste est facile :
+            // on associe chaque référence au widget qui nous permettra d'afficher l'étudiant
+            txt_nom_etudiant = findViewById(R.id.txt_nom);
+            txt_prenom_etudiant = findViewById(R.id.txt_prenom);
+            txt_annee_etudiant = findViewById(R.id.txt_annee);
+
+            // on met enfin à jour le texte des widget avec les valeurs issues de etudiantVisualise
+            txt_prenom_etudiant.setText(etudiantVisualise.prenom);
+            txt_nom_etudiant.setText(etudiantVisualise.nom);
+            txt_annee_etudiant.setText(etudiantVisualise.annee);
+
+
+
+
 
         /*********************************/
         /*** GESTION DU BOUTON  RETOUR ***/
