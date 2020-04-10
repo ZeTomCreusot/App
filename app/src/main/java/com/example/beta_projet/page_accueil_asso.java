@@ -13,11 +13,20 @@ public class page_accueil_asso extends AppCompatActivity {
     Button boutonAjouteEtudiant;
     Button boutonListeEtudiants;
     Button boutonEnleveEtudiant;
+    private Button boutton_retour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_accueil_asso);
+        boutton_retour = (Button) findViewById(R.id.bouton_retour);
+        boutton_retour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                visualiser_la_suite();
+
+            }
+        });
 
         //Récupération et affichage du choix du spinner
         Intent in=getIntent();
@@ -64,6 +73,11 @@ public class page_accueil_asso extends AppCompatActivity {
 
 
 
+    }
+    private void visualiser_la_suite()
+    {
+        Intent intent = new Intent(this, Associations.class);
+        startActivity(intent);
     }
     private void ouvrirAjoutEtudiant(String nom_asso)
     {
