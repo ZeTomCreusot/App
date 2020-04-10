@@ -23,7 +23,7 @@ import java.util.Arrays;
 public class ListeEtudiants extends AppCompatActivity {
     Button boutonRetour;
     ArrayList<Etudiant> listestudiants;
-    ArrayList<Etudiant> listestudiants_2;
+
 
 
 
@@ -64,13 +64,10 @@ public class ListeEtudiants extends AppCompatActivity {
         Gson gson = new Gson(); // on crée un gestionnaire de format json
         // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
         // préférences partagées
+        String listeEtudiantTxtJson=null;
 
-
-        String listeEtudiantTxtJson = null;
-
-        if(nomAsso.equals("BDE"))
-        {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDE", "");
+        if (nomAsso.equals("BDE")) {
+             listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDE", "");
         }
         if(nomAsso.equals("BDS"))
         {
@@ -110,7 +107,7 @@ public class ListeEtudiants extends AppCompatActivity {
         Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
         // reconstitution d'une arrayList a partir du tableau tableauEtudiantsTemporaire
         listestudiants = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
-        listestudiants_2 = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
+      //  listestudiants_2 = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
 
         /*****************************************/
         /*** AFFICHAGE DE LA LISTE D'ETUDIANTS ***/
