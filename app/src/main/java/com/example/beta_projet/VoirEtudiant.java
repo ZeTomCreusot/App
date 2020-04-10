@@ -29,7 +29,6 @@ public class VoirEtudiant extends AppCompatActivity {
         setContentView(R.layout.activity_voir_etudiant);
 
 
-
         /*****************************************/
         /*** RECUPERATION DE L'ETUDIANT CLIQUE ***/
         /*****************************************/
