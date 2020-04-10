@@ -51,8 +51,45 @@ public class VoirEtudiant extends AppCompatActivity {
         Bundle b=in.getExtras();
         final String nomAsso = (String) b.get("nomAsso");
 
+         String listeEtudiantTxtJson=null;
+            if(nomAsso.equals("BDE"))
+            {
+                listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsBDE", "");
+            }
+            if(nomAsso.equals("BDS"))
+            {
+                listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsBDS", "");
+            }
+        if(nomAsso.equals("BDJ"))
+        {
+             listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsBDJ", "");
+        }
+        if(nomAsso.equals("BDO"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsBDO", "");
+        }
+        if(nomAsso.equals("BDA"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsBDA", "");
+        }
+        if(nomAsso.equals("1 pour Tous"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsUPT", "");
+        }
+        if(nomAsso.equals("Tyrans"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsTyrans", "");
+        }
+        if(nomAsso.equals("EPF Sud Conseil"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsESC", "");
+        }
+        if(nomAsso.equals("Helphi"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsHelphi", "");
+        }
 
-            String listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants", "");
+
             // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
             // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
             Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
