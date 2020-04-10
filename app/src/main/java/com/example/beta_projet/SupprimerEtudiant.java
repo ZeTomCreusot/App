@@ -2,6 +2,7 @@ package com.example.beta_projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -29,6 +30,13 @@ public class SupprimerEtudiant extends AppCompatActivity {
         parent et on charge le calque associé */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supprimer_etudiant);
+
+        //Affichage et récupération du choix du spinner
+        Intent in=getIntent();
+        Bundle b=in.getExtras();
+        final String nomAsso = (String) b.get("nomAsso");
+        TextView t_nom=(TextView) findViewById(R.id.textView);
+        t_nom.setText(nomAsso);
 
         /**********************************************/
         /*** RECUPERATION DE LA LISTE DES ETUDIANTS ***/

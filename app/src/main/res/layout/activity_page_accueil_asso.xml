@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".page_accueil_asso">
 
+
+
     <TextView
         android:id="@+id/texte_nom"
         android:layout_width="wrap_content"
@@ -19,4 +21,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/btn_voir_liste"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="68dp"
+        android:text="Voir la liste"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ajout_element"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ajout_element" />
+
+    <Button
+        android:id="@+id/btn_ajout_element"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="129dp"
+        android:text="ajouter un élément"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_voir_liste" />
+
+    <Button
+        android:id="@+id/btn_supprimer_element"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="194dp"
+        android:layout_marginBottom="162dp"
+        android:text="Supprimer un élément"
+        app:layout_constraintBottom_toTopOf="@+id/btn_voir_liste"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

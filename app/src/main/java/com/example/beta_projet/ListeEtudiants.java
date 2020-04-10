@@ -24,7 +24,7 @@ public class ListeEtudiants extends AppCompatActivity {
     Button boutonRetour;
     ArrayList<Etudiant> listestudiants;
 
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,14 @@ public class ListeEtudiants extends AppCompatActivity {
         parent et on charge le calque associé */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_etudiants);
+
+
+        //Affichage et récupération du choix du spinner
+        Intent in=getIntent();
+        Bundle b=in.getExtras();
+        final String nomAsso = (String) b.get("nomAsso");
+        TextView t_nom=(TextView) findViewById(R.id.textView);
+        t_nom.setText(nomAsso);
 
         /**********************************************/
         /*** RECUPERATION DE LA LISTE DES ETUDIANTS ***/

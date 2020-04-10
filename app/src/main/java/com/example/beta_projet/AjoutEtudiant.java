@@ -2,11 +2,13 @@ package com.example.beta_projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -40,6 +42,13 @@ public class AjoutEtudiant extends AppCompatActivity {
         parent et on charge le calque associé */
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_ajout_etudiant);
+
+            //Affichage et récupération du choix du spinner
+            Intent in=getIntent();
+            Bundle b=in.getExtras();
+            final String nomAsso = (String) b.get("nomAsso");
+            TextView t_nom=(TextView) findViewById(R.id.textView4);
+            t_nom.setText(nomAsso);
 
             /*********************************/
             /*** REFERENCES VERS LE CALQUE ***/
