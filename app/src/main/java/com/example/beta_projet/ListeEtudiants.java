@@ -23,6 +23,7 @@ import java.util.Arrays;
 public class ListeEtudiants extends AppCompatActivity {
     Button boutonRetour;
     ArrayList<Etudiant> listestudiants;
+    ArrayList<Etudiant> listestudiants_2;
 
 
 
@@ -69,6 +70,7 @@ public class ListeEtudiants extends AppCompatActivity {
         Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
         // reconstitution d'une arrayList a partir du tableau tableauEtudiantsTemporaire
         listestudiants = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
+        listestudiants_2 = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
 
         /*****************************************/
         /*** AFFICHAGE DE LA LISTE D'ETUDIANTS ***/
@@ -87,6 +89,7 @@ public class ListeEtudiants extends AppCompatActivity {
             public int getCount() {
                 return listestudiants.size();
             }
+
 
             @Override
             public Object getItem(int i) {

@@ -6,4 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".BDE_A">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="298dp"
+        android:layout_height="493dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="57dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_voir_liste"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="65dp"
+            android:text="Voir la liste"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <Button
+            android:id="@+id/btn_ajout_element"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="50dp"
+            android:text="ajouter un élément"
+            app:layout_constraintTop_toBottomOf="@+id/btn_voir_liste"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <Button
+            android:id="@+id/btn_supprimer_element"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="50dp"
+            android:text="Supprimer un élément"
+            app:layout_constraintTop_toBottomOf="@+id/btn_ajout_element"
+            tools:layout_editor_absoluteX="-38dp"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

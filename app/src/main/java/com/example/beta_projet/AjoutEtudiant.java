@@ -24,9 +24,16 @@ public class AjoutEtudiant extends AppCompatActivity {
     EditText textePrenomSaisi;
     EditText texteAnneeSaisie;
     ArrayList<Etudiant> listestudiants;
-
+    ArrayList<Etudiant> listestudiants_2;
     ArrayList<Etudiant> listeBDE;
-
+    ArrayList<Etudiant> listeBDA;
+    ArrayList<Etudiant> listeBDS;
+    ArrayList<Etudiant> listeBDJ;
+    ArrayList<Etudiant> listeBDO;
+    ArrayList<Etudiant> liste1PT;
+    ArrayList<Etudiant> listeTyrans;
+    ArrayList<Etudiant> listeESC;
+    ArrayList<Etudiant> listeHelphi;
 
         // creation des references boutons et EditText que je vais trouver dans le layout
         // déclaration, sans initialisation
@@ -86,16 +93,31 @@ public class AjoutEtudiant extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
+                       /**************/
+                     /*Choix de la bonne liste*/
+                       /**************/
+
+
+                  /*
+                    Intent in = getIntent();
+                    Bundle b = in.getExtras();
+                    String nomAsso = (String) b.get("nomAsso");
+                    if (nomAsso.equals("BDE"))
+
+                   */
+
                     /** chargement de la liste d'étudiants **/
                     // on récupère les préférences stockées sous la clé mesPrefs :
                     SharedPreferences prefsStockees = getSharedPreferences("mesPrefs", MODE_PRIVATE);
                     Gson gson = new Gson(); // on crée un gestionnaire de format json
                     // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
                     // préférences partagées
+
                     String listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants", "");
                     // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
                     // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
                     Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
+
 
 
                     if (tableauEtudiantsTemporaire != null) {
@@ -119,6 +141,7 @@ public class AjoutEtudiant extends AppCompatActivity {
                     SharedPreferences.Editor prefsEditor = prefsStockees.edit();
                     // on transforme la liste d'étudiant en format json :
                     String ListeEtudiantsEnJson = gson.toJson(listestudiants);
+
                     // on envoie la liste (json) dans la clé cle_listeEtudiants de mesPrefs :
                     prefsEditor.putString("cle_listeEtudiants", ListeEtudiantsEnJson);
                     prefsEditor.commit(); // on enregistre les préférences
