@@ -87,14 +87,14 @@ public class AjoutEtudiant extends AppCompatActivity {
                     // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
                     Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
 
-
-                    if (tableauEtudiantsTemporaire != null) {
+                                      if (tableauEtudiantsTemporaire != null) {
                         // reconstitution d'une arrayList a partir du tableau tableauEtudiantsTemporaire
                         listestudiants = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
-
-                    } else {
+                    }
+                    else {
                         listestudiants = new ArrayList<Etudiant>();
                     }
+
                     /** creation d'un nouvel étudiant **/
                     String nom = texteNomSaisi.getText().toString();
                     String prenom = textePrenomSaisi.getText().toString();

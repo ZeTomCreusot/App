@@ -17,6 +17,7 @@ public class Associations extends AppCompatActivity {
     public ListView listeMembresAsso;
     private Button bouttonsuivant;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
