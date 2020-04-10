@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -26,6 +27,7 @@ public class VoirEtudiant extends AppCompatActivity {
         parent et on charge le calque associé */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voir_etudiant);
+
 
         /*****************************************/
         /*** RECUPERATION DE L'ETUDIANT CLIQUE ***/

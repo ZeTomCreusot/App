@@ -23,6 +23,7 @@ import java.util.Arrays;
 public class ListeEtudiants extends AppCompatActivity {
     Button boutonRetour;
     ArrayList<Etudiant> listestudiants;
+    ArrayList<Etudiant> listestudiants_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,14 @@ public class ListeEtudiants extends AppCompatActivity {
         parent et on charge le calque associé */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_etudiants);
+
+
+        //Affichage et récupération du choix du spinner
+        Intent in=getIntent();
+        Bundle b=in.getExtras();
+        final String nomAsso = (String) b.get("nomAsso");
+        TextView t_nom=(TextView) findViewById(R.id.textView);
+        t_nom.setText(nomAsso);
 
         /**********************************************/
         /*** RECUPERATION DE LA LISTE DES ETUDIANTS ***/
@@ -59,6 +68,7 @@ public class ListeEtudiants extends AppCompatActivity {
         Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
         // reconstitution d'une arrayList a partir du tableau tableauEtudiantsTemporaire
         listestudiants = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
+        listestudiants_2 = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
 
         /*****************************************/
         /*** AFFICHAGE DE LA LISTE D'ETUDIANTS ***/
@@ -77,6 +87,7 @@ public class ListeEtudiants extends AppCompatActivity {
             public int getCount() {
                 return listestudiants.size();
             }
+
 
             @Override
             public Object getItem(int i) {

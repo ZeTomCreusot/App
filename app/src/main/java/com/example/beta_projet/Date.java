@@ -39,42 +39,7 @@ public class Date extends AppCompatActivity {
                 //System.out.println("Vous avez selectionné");
                 String ASSO = spinner2.getSelectedItem().toString();
                 //System.out.println("Vous avez selectionné : "+ASSO);
-                if(ASSO.equals("BDE"))
-                {
-                    visualiser_la_suiteBDE();
-                }
-                if(ASSO.equals("BDS"))
-                {
-                    visualiser_la_suiteBDS();
-                }
-                if(ASSO.equals("BDJ"))
-                {
-                    visualiser_la_suiteBDJ();
-                }
-                if(ASSO.equals("BDO"))
-                {
-                    visualiser_la_suiteBDO();
-                }
-                if(ASSO.equals("BDA"))
-                {
-                    visualiser_la_suiteBDA();
-                }
-                if(ASSO.equals("1 pour Tous"))
-                {
-                    visualiser_la_suiteUPT();
-                }
-                if(ASSO.equals("Tyrans"))
-                {
-                    visualiser_la_suiteTyrans();
-                }
-                if(ASSO.equals("EPF Sud Conseil"))
-                {
-                    visualiser_la_suiteESC();
-                }
-                if(ASSO.equals("Helphi"))
-                {
-                    visualiser_la_suiteHelphi();
-                }
+
 
             }
             @Override
@@ -114,51 +79,6 @@ public class Date extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void visualiser_la_suiteBDE()
-    {
-        Intent intent = new Intent(this, BDE_P.class);
-        startActivity(intent);
-    }
 
-    private void visualiser_la_suiteBDS()
-    {
-        Intent intent = new Intent(this, BDS_P.class);
-        startActivity(intent);
-    }
-    private void visualiser_la_suiteBDJ()
-    {
-        Intent intent = new Intent(this, BDJ_P.class);
-        startActivity(intent);
-    }
-    private void visualiser_la_suiteBDO()
-    {
-        Intent intent = new Intent(this, BDO_P.class);
-        startActivity(intent);
-    }
-    private void visualiser_la_suiteBDA()
-    {
-        Intent intent = new Intent(this, BDO_P.class);
-        startActivity(intent);
-    }
-    private void visualiser_la_suiteUPT()
-    {
-        Intent intent = new Intent(this, BDO_P.class);
-        startActivity(intent);
-    }
-    private void visualiser_la_suiteTyrans()
-    {
-        Intent intent = new Intent(this, BDO_P.class);
-        startActivity(intent);
-    }
-    private void visualiser_la_suiteESC()
-    {
-        Intent intent = new Intent(this, BDO_P.class);
-        startActivity(intent);
-    }
-    private void visualiser_la_suiteHelphi()
-    {
-        Intent intent = new Intent(this, BDO_P.class);
-        startActivity(intent);
-    }
 
 }

@@ -2,11 +2,13 @@ package com.example.beta_projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -22,8 +24,16 @@ public class AjoutEtudiant extends AppCompatActivity {
     EditText textePrenomSaisi;
     EditText texteAnneeSaisie;
     ArrayList<Etudiant> listestudiants;
-
-
+    ArrayList<Etudiant> listestudiants_2;
+    ArrayList<Etudiant> listeBDE;
+    ArrayList<Etudiant> listeBDA;
+    ArrayList<Etudiant> listeBDS;
+    ArrayList<Etudiant> listeBDJ;
+    ArrayList<Etudiant> listeBDO;
+    ArrayList<Etudiant> liste1PT;
+    ArrayList<Etudiant> listeTyrans;
+    ArrayList<Etudiant> listeESC;
+    ArrayList<Etudiant> listeHelphi;
 
         // creation des references boutons et EditText que je vais trouver dans le layout
         // déclaration, sans initialisation
@@ -39,6 +49,13 @@ public class AjoutEtudiant extends AppCompatActivity {
         parent et on charge le calque associé */
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_ajout_etudiant);
+
+            //Affichage et récupération du choix du spinner
+            Intent in=getIntent();
+            Bundle b=in.getExtras();
+            final String nomAsso = (String) b.get("nomAsso");
+            TextView t_nom=(TextView) findViewById(R.id.textView4);
+            t_nom.setText(nomAsso);
 
             /*********************************/
             /*** REFERENCES VERS LE CALQUE ***/
@@ -76,47 +93,117 @@ public class AjoutEtudiant extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    /** chargement de la liste d'étudiants **/
-                    // on récupère les préférences stockées sous la clé mesPrefs :
-                    SharedPreferences prefsStockees = getSharedPreferences("mesPrefs", MODE_PRIVATE);
-                    Gson gson = new Gson(); // on crée un gestionnaire de format json
-                    // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
-                    // préférences partagées
-                    String listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants", "");
-                    // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
-                    // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
-                    Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
+                       /**************/
+                     /*Choix de la bonne liste*/
+                       /**************/
 
-                                      if (tableauEtudiantsTemporaire != null) {
-                        // reconstitution d'une arrayList a partir du tableau tableauEtudiantsTemporaire
-                        listestudiants = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
+
+
+
+                    if (nomAsso.equals("BDE")) {
+
+                        /** chargement de la liste d'étudiants **/
+                        // on récupère les préférences stockées sous la clé mesPrefs :
+                        SharedPreferences prefsStockees = getSharedPreferences("mesPrefs", MODE_PRIVATE);
+                        Gson gson = new Gson(); // on crée un gestionnaire de format json
+                        // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
+                        // préférences partagées
+
+                        String listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants", "");
+                        // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
+                        // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
+                        Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
+
+
+
+                        if (tableauEtudiantsTemporaire != null) {
+                            // reconstitution d'une arrayList a partir du tableau tableauEtudiantsTemporaire
+                            listestudiants = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
+
+                        } else {
+                            listestudiants = new ArrayList<Etudiant>();
+                        }
+                        /** creation d'un nouvel étudiant **/
+                        String nom = texteNomSaisi.getText().toString();
+                        String prenom = textePrenomSaisi.getText().toString();
+                        String annee = texteAnneeSaisie.getText().toString();
+                        Etudiant etudiantAjout = new Etudiant(nom, prenom, annee);
+
+                        /** ajout de l'étudiant à l'arrayList contenant les étudiants */
+                        listestudiants.add(etudiantAjout);
+
+                        /** enregistrement de la liste dans "SharedPreferences" */
+                        // on cree un éditeur de préferences, pour mettre à jour "mesPrefs" :
+                        SharedPreferences.Editor prefsEditor = prefsStockees.edit();
+                        // on transforme la liste d'étudiant en format json :
+                        String ListeEtudiantsEnJson = gson.toJson(listestudiants);
+
+                        // on envoie la liste (json) dans la clé cle_listeEtudiants de mesPrefs :
+                        prefsEditor.putString("cle_listeEtudiants", ListeEtudiantsEnJson);
+                        prefsEditor.commit(); // on enregistre les préférences
+
+                        /** fin de l'activite, mais en renvoyant un message de type Toast */
+                        Toast.makeText(AjoutEtudiant.this, "vous avez ajouté " + prenom + " " + nom, Toast.LENGTH_SHORT).show();
+                        finish(); // on ferme l'activite et on revient à l'activite precedente
                     }
-                    else {
-                        listestudiants = new ArrayList<Etudiant>();
+
+                    else if (nomAsso.equals("BDS")) {
+
+
+                        /** chargement de la liste d'étudiants **/
+                        // on récupère les préférences stockées sous la clé mesPrefs :
+                        SharedPreferences prefsStockees = getSharedPreferences("mesPrefs", MODE_PRIVATE);
+                        Gson gson = new Gson(); // on crée un gestionnaire de format json
+                        // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
+                        // préférences partagées
+
+                        String listeEtudiantTxtJson = prefsStockees.getString("cle_listeBDS", "");
+                        // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
+                        // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
+                        Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
+
+
+
+                        if (tableauEtudiantsTemporaire != null) {
+                            // reconstitution d'une arrayList a partir du tableau tableauEtudiantsTemporaire
+                            listeBDS = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
+
+                        } else {
+                            listeBDS = new ArrayList<Etudiant>();
+                        }
+                        /** creation d'un nouvel étudiant **/
+                        String nom = texteNomSaisi.getText().toString();
+                        String prenom = textePrenomSaisi.getText().toString();
+                        String annee = texteAnneeSaisie.getText().toString();
+                        Etudiant etudiantAjout = new Etudiant(nom, prenom, annee);
+
+                        /** ajout de l'étudiant à l'arrayList contenant les étudiants */
+                        listeBDS.add(etudiantAjout);
+
+                        /** enregistrement de la liste dans "SharedPreferences" */
+                        // on cree un éditeur de préferences, pour mettre à jour "mesPrefs" :
+                        SharedPreferences.Editor prefsEditor = prefsStockees.edit();
+                        // on transforme la liste d'étudiant en format json :
+                        String ListeEtudiantsEnJson = gson.toJson(listeBDS);
+
+                        // on envoie la liste (json) dans la clé cle_listeEtudiants de mesPrefs :
+                        prefsEditor.putString("cle_listeEtudiants", ListeEtudiantsEnJson);
+                        prefsEditor.commit(); // on enregistre les préférences
+
+                        /** fin de l'activite, mais en renvoyant un message de type Toast */
+                        Toast.makeText(AjoutEtudiant.this, "vous avez ajouté " + prenom + " " + nom, Toast.LENGTH_SHORT).show();
+                        finish(); // on ferme l'activite et on revient à l'activite precedente
+
                     }
 
-                    /** creation d'un nouvel étudiant **/
-                    String nom = texteNomSaisi.getText().toString();
-                    String prenom = textePrenomSaisi.getText().toString();
-                    String annee = texteAnneeSaisie.getText().toString();
-                    Etudiant etudiantAjout = new Etudiant(nom, prenom, annee);
 
-                    /** ajout de l'étudiant à l'arrayList contenant les étudiants */
-                    listestudiants.add(etudiantAjout);
 
-                    /** enregistrement de la liste dans "SharedPreferences" */
-                    // on cree un éditeur de préferences, pour mettre à jour "mesPrefs" :
-                    SharedPreferences.Editor prefsEditor = prefsStockees.edit();
-                    // on transforme la liste d'étudiant en format json :
-                    String ListeEtudiantsEnJson = gson.toJson(listestudiants);
-                    // on envoie la liste (json) dans la clé cle_listeEtudiants de mesPrefs :
-                    prefsEditor.putString("cle_listeEtudiants", ListeEtudiantsEnJson);
-                    prefsEditor.commit(); // on enregistre les préférences
 
-                    /** fin de l'activite, mais en renvoyant un message de type Toast */
-                    Toast.makeText(AjoutEtudiant.this, "vous avez ajouté " + prenom + " " + nom, Toast.LENGTH_SHORT).show();
-                    finish(); // on ferme l'activite et on revient à l'activite precedente
-                }
+
+                    }
+
+
+
             });
 
         }
