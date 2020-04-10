@@ -30,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+/************************/
+/****NOTIFS**************/
+/***********************/
+
+//* Récupération de l'évènement quand l'app reçoit un message de firebase
+// Le but du jeu est d'intercepter les notifications envoyées depuis firebase sur le cloud
+
 
 
 
