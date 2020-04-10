@@ -24,16 +24,7 @@ public class AjoutEtudiant extends AppCompatActivity {
     EditText textePrenomSaisi;
     EditText texteAnneeSaisie;
     ArrayList<Etudiant> listestudiants;
-    ArrayList<Etudiant> listestudiants_2;
-    ArrayList<Etudiant> listeBDE;
-    ArrayList<Etudiant> listeBDA;
-    ArrayList<Etudiant> listeBDS;
-    ArrayList<Etudiant> listeBDJ;
-    ArrayList<Etudiant> listeBDO;
-    ArrayList<Etudiant> liste1PT;
-    ArrayList<Etudiant> listeTyrans;
-    ArrayList<Etudiant> listeESC;
-    ArrayList<Etudiant> listeHelphi;
+
 
         // creation des references boutons et EditText que je vais trouver dans le layout
         // déclaration, sans initialisation

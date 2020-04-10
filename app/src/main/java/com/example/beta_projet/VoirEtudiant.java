@@ -29,6 +29,13 @@ public class VoirEtudiant extends AppCompatActivity {
         setContentView(R.layout.activity_voir_etudiant);
 
 
+        //Affichage et récupération du choix du spinner
+        Intent in=getIntent();
+        Bundle b=in.getExtras();
+        final String nomAsso = (String) b.get("nomAsso");
+        TextView t_nom=(TextView) findViewById(R.id.textView);
+        t_nom.setText(nomAsso);
+
         /*****************************************/
         /*** RECUPERATION DE L'ETUDIANT CLIQUE ***/
         /*****************************************/
@@ -47,7 +54,44 @@ public class VoirEtudiant extends AppCompatActivity {
         Gson gson = new Gson(); // on crée un gestionnaire de format json
         // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
         // préférences partagées
-        String listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants", "");
+        String listeEtudiantTxtJson = null;
+        if(nomAsso.equals("BDE"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDE", "");
+        }
+        if(nomAsso.equals("BDS"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDS", "");
+        }
+        if(nomAsso.equals("BDJ"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDJ", "");
+        }
+        if(nomAsso.equals("BDA"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDA", "");
+        }
+        if(nomAsso.equals("1 pour Tous"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_UPT", "");
+        }
+        if(nomAsso.equals("BDO"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDO", "");
+        }
+        if(nomAsso.equals("Tyrans"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_Tyrans", "");
+        }
+        if(nomAsso.equals("EPF Sud Conseil"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_ESC", "");
+        }
+        if(nomAsso.equals("Helphi"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_Helphi", "");
+        }
+
         // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
         // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
         Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
