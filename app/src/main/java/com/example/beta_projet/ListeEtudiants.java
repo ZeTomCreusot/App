@@ -62,7 +62,31 @@ public class ListeEtudiants extends AppCompatActivity {
         Gson gson = new Gson(); // on crée un gestionnaire de format json
         // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
         // préférences partagées
-        String listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants", "");
+
+        String listeEtudiantTxtJson=null;
+
+        if (nomAsso.equals("BDS")) {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDS", "");
+            // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
+            // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
+        }
+        if (nomAsso.equals("BDE")) {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDE", "");
+            // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
+            // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
+        }
+        if (nomAsso.equals("BDA")) {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDA", "");
+            // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
+            // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
+        }
+        if (nomAsso.equals("BDJ")) {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDS", "");
+            // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
+            // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
+        }
+
+
         // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
         // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
         Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
