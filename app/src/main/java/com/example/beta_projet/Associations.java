@@ -50,9 +50,20 @@ public class Associations extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> spinner_Asso, View view, int position, long id) {
 
                 String Asso = spinner_Asso.getSelectedItem().toString();
+
+                if(Asso.equals("Choisissez votre association"))
+                {
+                }
+                else
+                {
+                afficher_la_suite(Asso);}
+
+
+
+
                 /*if(Asso.equals("BDS"))
                 {
-                    afficherListeMembres1(); }*/
+                    afficherListeMembres1(); }
 
                 if(Asso.equals("BDE"))
                 {
@@ -90,6 +101,7 @@ public class Associations extends AppCompatActivity {
                 {
                     afficher_la_suiteHelphi();
                 }
+                */
 
 
             }
@@ -125,7 +137,14 @@ public class Associations extends AppCompatActivity {
         listeMembresAsso.setAdapter(arrayAdapteur);
     }
 
-    private void afficher_la_suiteBDE()
+    private void afficher_la_suite(String nom_asso)
+    {
+        Intent intent = new Intent(this, page_accueil_asso.class);
+        intent.putExtra("nomAsso",nom_asso);
+        startActivity(intent);
+    }
+
+    /*private void afficher_la_suiteBDE()
     {
         Intent intent = new Intent(this, BDE_A.class);
         startActivity(intent);
@@ -170,7 +189,7 @@ public class Associations extends AppCompatActivity {
     {
         Intent intent = new Intent(this, Helphi_A.class);
         startActivity(intent);
-    }
+    }*/
 
 
 }

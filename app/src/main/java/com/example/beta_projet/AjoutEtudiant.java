@@ -23,6 +23,7 @@ public class AjoutEtudiant extends AppCompatActivity {
     EditText texteAnneeSaisie;
     ArrayList<Etudiant> listestudiants;
 
+    ArrayList<Etudiant> listeBDE;
 
 
         // creation des references boutons et EditText que je vais trouver dans le layout
