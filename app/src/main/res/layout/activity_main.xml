@@ -91,7 +91,4 @@
         app:srcCompat="@drawable/epflogo" />
 
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondv2"
-    tools:context=".page_accueil_asso">
-
+    tools:context=".page_accueil_produit">
 
     <TextView
         android:id="@+id/texte_nom"
@@ -83,6 +82,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

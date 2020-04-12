@@ -23,35 +23,27 @@ public class VoirEtudiant extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /* les instructions "classiques" : a la création d'une activité, on appelle le constructeur
-        parent et on charge le calque associé */
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voir_etudiant);
 
+       // on récupere la session d'acitivte
+        // on recupere ensuite l'indice passé
+        Intent in=getIntent();
+        Bundle bu=in.getExtras();
+        String nomAsso = (String) bu.get("nomAssoAs");
 
-        /*****************************************/
-        /*** RECUPERATION DE L'ETUDIANT CLIQUE ***/
-        /*****************************************/
-
-        /* ici on a une configuration particulière : la page doit afficher un etudiant en particulier
-        cet étudiant a ete désigné sur l'activité précédente. On a envoyé son numero dans la liste
-        grace a une propriété "extra" lors de la création de l'activité, nommée indexEtudiantClique
-        on récupère la valeur dans indiceEtudiant grace aux deux lignes suivantes
-         */
         Intent intent = getIntent();  // on récupere la session d'acitivte
         // on recupere ensuite l'indice passé
         int indiceEtudiant = intent.getIntExtra("indexEtudiantClique", -1);
 
         // on récupère les préférences stockées sous la clé mesPrefs :
         SharedPreferences prefsStockees = getSharedPreferences("mesPrefs", MODE_PRIVATE);
-        Gson gson = new Gson(); // on crée un gestionnaire de format json
-        // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
+        Gson gson = new Gson(); // on crée un gestionaire de format json
+        // on extrait la liste referencée par le mot clen_listeEtudiants qu'on avait stocké dans les
         // préférences partagées
-        Intent in=getIntent();
-        Bundle b=in.getExtras();
-        final String nomAsso = (String) b.get("nomAsso");
 
-         String listeEtudiantTxtJson=null;
+         String listeEtudiantTxtJson = null;
             if(nomAsso.equals("BDE"))
             {
                 listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsBDE", "");

@@ -8,66 +8,66 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class page_accueil_asso extends AppCompatActivity {
+public class page_accueil_produit extends AppCompatActivity {
 
-    Button boutonAjouteEtudiant;
-    Button boutonListeEtudiants;
-    Button boutonEnleveEtudiant;
+
+    Button boutonAjouteProduit;
+    Button boutonListeProduits;
+    Button boutonEnleveProduit;
     private Button bouton_retour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page_accueil_asso);
+        setContentView(R.layout.activity_page_accueil_produit);
 
         bouton_retour = (Button) findViewById(R.id.bouton_retour);
         bouton_retour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                retour_page_asso();
-
+                retour_page_produit();
             }
         });
 
         //Récupération et affichage du choix du spinner
         Intent in=getIntent();
         Bundle b=in.getExtras();
-        final String nomAsso = (String) b.get("nomAssoA");
+        final String nomAssoP = (String) b.get("nomAssoP");
         TextView t_nom=(TextView) findViewById(R.id.texte_nom);
-        t_nom.setText(nomAsso);
+        t_nom.setText(nomAssoP);
 
 
 
         // association de nos references avec les objets du layout
-        boutonAjouteEtudiant = (Button) findViewById(R.id.btn_ajout_element);
-        boutonListeEtudiants = (Button) findViewById(R.id.btn_voir_liste);
-        boutonEnleveEtudiant = (Button) findViewById(R.id.btn_supprimer_element);
+        boutonAjouteProduit = (Button) findViewById(R.id.btn_ajout_element);
+        boutonListeProduits = (Button) findViewById(R.id.btn_voir_liste);
+        boutonEnleveProduit = (Button) findViewById(R.id.btn_supprimer_element);
 
         // ajout des écouuteurs : quand on va cliqueur sur un bounton on va charger l'activité associée
         // ajout de l'écouteur sur boutonAjouterEtudiant
-        boutonAjouteEtudiant.setOnClickListener(new View.OnClickListener() {
+        boutonAjouteProduit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // ovuerture de l'activité AjoutEtudiant
-                ouvrirAjoutEtudiant(nomAsso);
+                ouvrirAjoutProduit(nomAssoP);
             }
         });
 
         // ajout de l'écouteur sur boutonAjouterEtudiant
-        boutonListeEtudiants.setOnClickListener(new View.OnClickListener() {
+        boutonListeProduits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ouvrirListeEtudiant(nomAsso);
+                ouvrirListeProduit(nomAssoP);
             }
         });
 
         // ajout de l'écouteur sur boutonAjouterEtudiant
 
-        boutonEnleveEtudiant.setOnClickListener(new View.OnClickListener() {
+        boutonEnleveProduit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // ovuerture de l'activité AjoutEtudiant
-                ouvrirSupprimerEtudiant(nomAsso);
+                ouvrirSupprimerProduit(nomAssoP);
             }
         });
 
@@ -75,27 +75,28 @@ public class page_accueil_asso extends AppCompatActivity {
 
 
     }
-    private void retour_page_asso()
+    private void retour_page_produit()
     {
         Intent intent = new Intent(this, Associations.class);
         startActivity(intent);
     }
-    private void ouvrirAjoutEtudiant(String nom_asso)
+    private void ouvrirAjoutProduit(String nom_asso)
     {
-        Intent intent = new Intent(page_accueil_asso.this, AjoutEtudiant.class);
-        intent.putExtra("nomAssoA",nom_asso);
+        Intent intent = new Intent(page_accueil_produit.this, AjoutProduit.class);
+        intent.putExtra("nomAssoP",nom_asso);
         startActivity(intent);
     }
-    private void ouvrirListeEtudiant(String nom_asso)
+    private void ouvrirListeProduit(String nom_asso)
     {
-        Intent intent = new Intent(page_accueil_asso.this, ListeEtudiants.class);
-        intent.putExtra("nomAssoA",nom_asso);
+        Intent intent = new Intent(page_accueil_produit.this, ListeProduits.class);
+        intent.putExtra("nomAssoP",nom_asso);
         startActivity(intent);
     }
-    private void ouvrirSupprimerEtudiant(String nom_asso)
+    private void ouvrirSupprimerProduit(String nom_asso)
     {
-        Intent intent = new Intent(page_accueil_asso.this, SupprimerEtudiant.class);
-        intent.putExtra("nomAssoA",nom_asso);
+        Intent intent = new Intent(page_accueil_produit.this, SupprimerProduit.class);
+        intent.putExtra("nomAssoP",nom_asso);
         startActivity(intent);
     }
 }
+

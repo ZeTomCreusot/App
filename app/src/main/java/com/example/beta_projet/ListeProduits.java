@@ -20,111 +20,83 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ListeEtudiants extends AppCompatActivity {
+public class ListeProduits extends AppCompatActivity {
+
     Button boutonRetour;
-    ArrayList<Etudiant> listestudiants;
-    public Button test;
-
-
+    ArrayList<Produit> listeProduits;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-                /* les instructions "classiques" : a la création d'une activité, on appelle le constructeur
-        parent et on charge le calque associé */
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_liste_etudiants);
-
+        setContentView(R.layout.activity_liste_produits);
 
         //Affichage et récupération du choix du spinner
         Intent in=getIntent();
         Bundle b=in.getExtras();
-        final String nomAsso = (String) b.get("nomAssoA");
+        final String nomAsso = (String) b.get("nomAssoP");
         TextView t_nom=(TextView) findViewById(R.id.textView);
         t_nom.setText(nomAsso);
 
-        /**********************************************/
-        /*** RECUPERATION DE LA LISTE DES ETUDIANTS ***/
-        /**********************************************/
-        /** ici on récupere la liste des étudiants qui est sauvegardée dans un endroit du telephone qui s'appelle
-         * sharedpreference. c'est comme une base de données, mais propre au telephone.
-         * cette zone est accessible n'importe ou dans les activités de l'application :) Le probleme de
-         * cette zone ,c'est qu'on ne peut y enregistrer que des types simples : string, int, float etc
-         * or on voudrait stocker une arrayList d'étudiants
-         * on a donc comme solution alterrative de transformer notre arraylist en chaine json, puis la stocker
-         * et apres on la récupere sous forme de chaine, on la retransforme en tableau fixe, puis en arraylist
-         * Ca semble un peu tordu et compliqué, mais finalement ce n'est pas si long et ca marche plutot bien
-         *
-         * On a ci-dessous la portion de code pour charger une liste existante
-         * il y aura ailleurs une autre portion de code pour sauvegarder la liste dans sharedpreference, qu'on
-         * utilisera quand on aura modifié la liste
-         */
-        /*chargement de la liste d'étudiants **/
-        // on récupère les préférences stockées sous la clé mesPrefs :
+
         SharedPreferences prefsStockees = getSharedPreferences("mesPrefs", MODE_PRIVATE);
         Gson gson = new Gson(); // on crée un gestionnaire de format json
         // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
         // préférences partagées
-        String listeEtudiantTxtJson=null;
+        String listeProduitTxtJson=null;
 
-        if (nomAsso.equals("BDE")) {
-             listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDE", "");
+        if (nomAsso.equals("BDE"))
+        {
+            listeProduitTxtJson = prefsStockees.getString("cle_listeProduits_BDE", "");
         }
         if(nomAsso.equals("BDS"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDS", "");
+            listeProduitTxtJson = prefsStockees.getString("cle_listeProduits_BDS", "");
         }
         if(nomAsso.equals("BDJ"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDJ", "");
+            listeProduitTxtJson = prefsStockees.getString("cle_listeProduits_BDJ", "");
         }
         if(nomAsso.equals("BDA"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDA", "");
+            listeProduitTxtJson = prefsStockees.getString("cle_listeProduits_BDA", "");
         }
         if(nomAsso.equals("1 pour Tous"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_UPT", "");
+            listeProduitTxtJson = prefsStockees.getString("cle_listeProduits_UPT", "");
         }
         if(nomAsso.equals("BDO"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDO", "");
+            listeProduitTxtJson = prefsStockees.getString("cle_listeProduits_BDO", "");
         }
         if(nomAsso.equals("Tyrans"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_Tyrans", "");
+            listeProduitTxtJson = prefsStockees.getString("cle_listeProduits_Tyrans", "");
         }
         if(nomAsso.equals("EPF Sud Conseil"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_ESC", "");
+            listeProduitTxtJson = prefsStockees.getString("cle_listeProduits_ESC", "");
         }
         if(nomAsso.equals("Helphi"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_Helphi", "");
+            listeProduitTxtJson = prefsStockees.getString("cle_listeProduits_Helphi", "");
         }
+
+
 
         // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
         // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
-        Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
-        // reconstitution d'une arrayList a partir du tableau tableauEtudiantsTemporaire
-        listestudiants = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
-      //  listestudiants_2 = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
+        Produit[] tableauProduitsTemporaire = gson.fromJson(listeProduitTxtJson, Produit[].class);
+        // reconstitution d'une arrayList a partir du tableau tableauProduitsTemporaire
+        listeProduits = new ArrayList<Produit>(Arrays.asList(tableauProduitsTemporaire));
+        //  listestudiants_2 = new ArrayList<Etudiant>(Arrays.asList(tableauProduitsTemporaire));
 
-        /*****************************************/
-        /*** AFFICHAGE DE LA LISTE D'ETUDIANTS ***/
-        /*****************************************/
 
-        /** on va synchroniser  la listView avec notre arrayList listeEtudiants
-         *
-         un baseAdapter est un outil puissant mais complexe qui va nous permettre de faire une listView
-         * evoluée, dans laquelle chaque item pourra contenir un formatage poussé.
-         * ceci nécessite de redéfinir quelques méthodes, notamment getView qui permet de formater l'affichage
-         */
         BaseAdapter customBaseAdapter = new BaseAdapter() {
             // Return list view item count.
             @Override
             // a la question "combien d'éléments as-tu ?" on va fournir comme réponse la taille de la listeEtudiants.
             public int getCount() {
-                return listestudiants.size();
+                return listeProduits.size();
             }
 
 
@@ -133,7 +105,7 @@ public class ListeEtudiants extends AppCompatActivity {
                 // getItem doit renvoyer l'item qui est associé à l'éléméent de liste d'indice i
                 // on renvoie simplement le i^eme elemnt de listeEtudiant, car la listview doit etre
                 // etre synchronisée avec listeEtudiants
-                return listestudiants.get(i);
+                return listeProduits.get(i);
             }
 
             @Override
@@ -150,14 +122,14 @@ public class ListeEtudiants extends AppCompatActivity {
                  **/
                 if (itemView == null) {   // on va creer une case réponse (une ligne du listview ) avec un modele défini dans le fichier
                     // xml main_activity_base_adapter
-                    itemView = LayoutInflater.from(ListeEtudiants.this).inflate(R.layout.cadre_item_2_liste, null);
+                    itemView = LayoutInflater.from(ListeProduits.this).inflate(R.layout.cadre_item_2_liste, null);
                 }
 
                 // On récupere les 3 cases (image + zone identite + zone age de ce modele)
                 // on va les remplir par la suite avec les valeurs à affcher pour cette ligne
                 // ImageView imageView = (ImageView) itemView.findViewById(R.id.baseUserImage);
-                TextView txt_etudiant_nomprenom  = (TextView) itemView.findViewById(R.id.txt_nom_prenom);
-                TextView txt_etudiant_annee  = (TextView) itemView.findViewById(R.id.txt_annee);
+                TextView txt_produit_nomProduit  = (TextView) itemView.findViewById(R.id.txt_nom_prenom);
+                TextView txt_produit_peremption  = (TextView) itemView.findViewById(R.id.txt_annee);
 
                 // on alterne la couleur du fond
                 int colorPos = itemIndex % 2;
@@ -168,15 +140,15 @@ public class ListeEtudiants extends AppCompatActivity {
                 }
 
                 // on lit les valeur des ressources par rapport à listeetudiants
-                Etudiant etudiantAafficher = (Etudiant) listestudiants.get(itemIndex);
+                Produit produitAafficher = (Produit) listeProduits.get(itemIndex);
                 //imageView.setImageResource(R.mipmap.ic_launcher);
-                final String nom = etudiantAafficher.nom;
-                final String prenom = etudiantAafficher.prenom;
-                final String annee = etudiantAafficher.annee;
+                final String nom = produitAafficher.nomProduit;
+                final String provenance = produitAafficher.provenanceProduit;
+                final String datePeremption = produitAafficher.datePeremptionProduit;
 
                 // on les insère dans les champs correspondants
-                txt_etudiant_nomprenom.setText(prenom + " " + nom);
-                txt_etudiant_annee.setText("Annee : "+ annee);
+                txt_produit_nomProduit.setText( nom);
+                txt_produit_peremption.setText("Date de peremption: "+ datePeremption);
 
                 /** que se passe-t'il si on click sur l'item en entier (itemView)?
                  * on va simplement lancer l'activité Voiretudiant en lui passant un parametre :
@@ -186,12 +158,13 @@ public class ListeEtudiants extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         // on affiche un petit message de type Toast, qui arrivera aussi sur l'autre activite
-                        Toast.makeText(ListeEtudiants.this, "vous avez cliqué sur " + prenom + " " + nom, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ListeProduits.this, "vous avez cliqué sur "  + nom, Toast.LENGTH_SHORT).show();
                         // on crée la nouvelle activite
-                        Intent intent = new Intent(ListeEtudiants.this, VoirEtudiant.class);
+                        Intent intent = new Intent(ListeProduits.this, VoirEtudiant.class);
                         // on lui passe un parametre : indexEtudiantClique, qui sera l'index de l'item cliqué
-                        intent.putExtra("indexEtudiantClique", itemIndex);
-                        intent.putExtra("nomAssoAs",nomAsso);
+                        intent.putExtra("indexProduitClique", itemIndex);
+
+                        intent.putExtra("nomAssoP",nomAsso);
                         startActivity(intent); // lancement de l'activité
                     }
                 });
@@ -201,20 +174,9 @@ public class ListeEtudiants extends AppCompatActivity {
         };
 
         // de retour dans la methode onCreate :  on récupere enfin la listView pour affichage
-        ListView lv_Etudiants  = (ListView)findViewById(R.id.listView_etudiants);
+        ListView lv_Produits  = (ListView)findViewById(R.id.listView_etudiants);
         // on l'associe au customAdapter. et voila
-        lv_Etudiants.setAdapter(customBaseAdapter);
-
-        test = (Button) findViewById(R.id.button);
-
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ListeEtudiants.this, VoirEtudiant.class);
-                startActivity(intent);
-
-            }
-        });
+        lv_Produits.setAdapter(customBaseAdapter);
 
         /*********************************/
         /*** GESTION DU BOUTON  RETOUR ***/
@@ -228,8 +190,6 @@ public class ListeEtudiants extends AppCompatActivity {
                 finish(); // on se contente de fermer l'activite. Pas de création d'une activité déja lancée avant
             }
         });
-
-
 
 
     }
