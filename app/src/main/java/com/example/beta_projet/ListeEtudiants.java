@@ -188,9 +188,9 @@ public class ListeEtudiants extends AppCompatActivity {
                         // on affiche un petit message de type Toast, qui arrivera aussi sur l'autre activite
                         Toast.makeText(ListeEtudiants.this, "vous avez cliqué sur " + prenom + " " + nom, Toast.LENGTH_SHORT).show();
                         // on crée la nouvelle activite
-                        Intent intent = new Intent(ListeEtudiants.this, VoirEtudiant.class);
+                        Intent intent = new Intent(ListeEtudiants.this, ClassVoirEtudiant.class);
                         // on lui passe un parametre : indexEtudiantClique, qui sera l'index de l'item cliqué
-                        intent.putExtra("indexEtudiantClique", itemIndex);
+                        intent.putExtra("indexEtudiant", itemIndex);
                         intent.putExtra("nomAssoAs",nomAsso);
                         startActivity(intent); // lancement de l'activité
                     }
@@ -205,16 +205,16 @@ public class ListeEtudiants extends AppCompatActivity {
         // on l'associe au customAdapter. et voila
         lv_Etudiants.setAdapter(customBaseAdapter);
 
-        test = (Button) findViewById(R.id.button);
+        /*test = (Button) findViewById(R.id.button);
 
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ListeEtudiants.this, VoirEtudiant.class);
+                Intent intent = new Intent(ListeEtudiants.this, ClassVoirEtudiant.class);
                 startActivity(intent);
 
             }
-        });
+        });*/
 
         /*********************************/
         /*** GESTION DU BOUTON  RETOUR ***/
