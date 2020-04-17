@@ -24,6 +24,7 @@ public class ListeProduits extends AppCompatActivity {
 
     Button boutonRetour;
     ArrayList<Produit> listeProduits;
+    public int itemIndex=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,8 +111,10 @@ public class ListeProduits extends AppCompatActivity {
 
             @Override
             public long getItemId(int i) {
+                itemIndex=i;
                 return i;
             }
+
 
             @Override
             public View getView(final int itemIndex, View itemView, ViewGroup viewGroup) {

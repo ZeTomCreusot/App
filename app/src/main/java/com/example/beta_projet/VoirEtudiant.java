@@ -26,13 +26,13 @@ public class VoirEtudiant extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voir_etudiant);
-
+/*
        // on récupere la session d'acitivte
         // on recupere ensuite l'indice passé
         Intent in=getIntent();
         Bundle bu=in.getExtras();
         String nomAsso = (String) bu.get("nomAssoAs");
-
+*/
         Intent intent = getIntent();  // on récupere la session d'acitivte
         // on recupere ensuite l'indice passé
         int indiceEtudiant = intent.getIntExtra("indexEtudiantClique", -1);
@@ -42,7 +42,7 @@ public class VoirEtudiant extends AppCompatActivity {
         Gson gson = new Gson(); // on crée un gestionaire de format json
         // on extrait la liste referencée par le mot clen_listeEtudiants qu'on avait stocké dans les
         // préférences partagées
-
+/*
          String listeEtudiantTxtJson = null;
             if(nomAsso.equals("BDE"))
             {
@@ -98,16 +98,13 @@ public class VoirEtudiant extends AppCompatActivity {
             txt_nom_etudiant = findViewById(R.id.txt_nom);
             txt_prenom_etudiant = findViewById(R.id.txt_prenom);
             txt_annee_etudiant = findViewById(R.id.txt_annee);
-
+/*
             // on met enfin à jour le texte des widget avec les valeurs issues de etudiantVisualise
             txt_prenom_etudiant.setText(etudiantVisualise.prenom);
             txt_nom_etudiant.setText(etudiantVisualise.nom);
             txt_annee_etudiant.setText(etudiantVisualise.annee);
 
-
-
-
-
+*/
         /*********************************/
         /*** GESTION DU BOUTON  RETOUR ***/
         /*********************************/

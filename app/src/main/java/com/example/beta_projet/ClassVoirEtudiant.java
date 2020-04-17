@@ -8,15 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
 public class ClassVoirEtudiant extends AppCompatActivity {
 
     Button bouton_Retour;
-    EditText prenom_Etudiant;
-    EditText nom_Etudiant;
-    EditText annee_Etudiant;
+
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,9 +92,10 @@ public class ClassVoirEtudiant extends AppCompatActivity {
 
 
 
-        prenom_Etudiant=findViewById(R.id.prenomEtudiant);
-        nom_Etudiant= findViewById(R.id.nomEtudiant);
-        annee_Etudiant=findViewById(R.id.anneeEtudiant);
+
+        TextView prenom_Etudiant=(TextView) findViewById(R.id.prenomEtudiant);
+        TextView nom_Etudiant= (TextView)findViewById(R.id.nomEtudiant);
+        TextView annee_Etudiant=(TextView)findViewById(R.id.anneeEtudiant);
 
         prenom_Etudiant.setText(etudiantVisualise.prenom);
         nom_Etudiant.setText(etudiantVisualise.nom);
