@@ -48,7 +48,8 @@ public class page_accueil_asso extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // ovuerture de l'activité AjoutEtudiant
-                ouvrirAjoutEtudiant(nomAsso);
+               // ouvrirAjoutEtudiant(nomAsso);
+                mot_de_passe();
             }
         });
 
@@ -95,6 +96,11 @@ public class page_accueil_asso extends AppCompatActivity {
     {
         Intent intent = new Intent(page_accueil_asso.this, SupprimerEtudiant.class);
         intent.putExtra("nomAsso",nom_asso);
+        startActivity(intent);
+    }
+    private void mot_de_passe()
+    {
+        Intent intent = new Intent(this, Authentification.class);
         startActivity(intent);
     }
 }
