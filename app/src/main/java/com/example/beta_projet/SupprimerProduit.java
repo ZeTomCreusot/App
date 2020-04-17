@@ -149,9 +149,9 @@ public class SupprimerProduit extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         // on récupere l'étudiant cliqué
-                        Etudiant produitSupprime = (Etudiant) getItem(itemIndex);
+                        Produit produitSupprime = (Produit) getItem(itemIndex);
                         // on affiche un petit message de type Toast, qui annonce l'étudaint supprimé
-                        Toast.makeText(SupprimerProduit.this, "vous avez supprimé " + produitSupprime.prenom + " " + produitSupprime.nom, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SupprimerProduit.this, "vous avez supprimé " + produitSupprime.nomProduit, Toast.LENGTH_SHORT).show();
                         // on enleve l'étudiant de la liste;
                         listesProduits.remove(produitSupprime);
                         /* important : on annonce a la listview que la liste d'étudiants a partir de laquelle
