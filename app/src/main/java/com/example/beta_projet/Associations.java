@@ -48,52 +48,8 @@ public class Associations extends AppCompatActivity {
                 }
                 else
                 {
-                afficher_la_suite(Asso);}
-
-
-
-
-                /*if(Asso.equals("BDS"))
-                {
-                    afficherListeMembres1(); }
-
-                if(Asso.equals("BDE"))
-                {
-                    afficher_la_suiteBDE();
+                    afficher_page_Asso(Asso);
                 }
-                if(Asso.equals("BDS"))
-                {
-                    afficher_la_suiteBDS();
-                }
-                if(Asso.equals("BDJ"))
-                {
-                    afficher_la_suiteBDJ();
-                }
-                if(Asso.equals("BDO"))
-                {
-                    afficher_la_suiteBDO();
-                }
-                if(Asso.equals("BDA"))
-                {
-                    afficher_la_suiteBDA();
-                }
-                if(Asso.equals("1 pour Tous"))
-                {
-                    afficher_la_suiteUPT();
-                }
-                if(Asso.equals("Tyrans"))
-                {
-                    afficher_la_suiteTyrans();
-                }
-                if(Asso.equals("EPF Sud Conseil"))
-                {
-                    afficher_la_suiteESC();
-                }
-                if(Asso.equals("Helphi"))
-                {
-                    afficher_la_suiteHelphi();
-                }
-                */
 
 
             }
@@ -134,7 +90,7 @@ public class Associations extends AppCompatActivity {
     {
 
         Intent intent = new Intent(this, page_accueil_asso.class);
-        intent.putExtra("nomAsso",nom_asso);
+        intent.putExtra("nomAsso", nom_assoA);
         startActivity(intent);
     }
 
