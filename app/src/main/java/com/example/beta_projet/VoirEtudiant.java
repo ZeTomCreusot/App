@@ -114,9 +114,7 @@ public class VoirEtudiant extends AppCompatActivity {
 
 
 
-        /*********************************/
-        /*** GESTION DU BOUTON  RETOUR ***/
-        /*********************************/
+
         // recherche du bouton retour dans le layout
         boutonRetour = findViewById(R.id.bouton_retour);
 
