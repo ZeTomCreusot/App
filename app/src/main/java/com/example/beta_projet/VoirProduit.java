@@ -7,12 +7,17 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
 public class VoirProduit extends AppCompatActivity {
 
     Button boutonRetour;
+    TextView txt_nom_produit;
+    TextView txt_provenance_produit;
+    TextView txt_date_produit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,25 +81,25 @@ public class VoirProduit extends AppCompatActivity {
 
             // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
             // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
-            Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeProduitTxtJson, Etudiant[].class);
+            Produit[] tableauProduitsTemporaire = gson.fromJson(listeProduitTxtJson, Produit[].class);
             // on identifie l'étudiant de la liste qui a l'id qu'on devait afficher.
             // on le stocke dans une reference etudiantVisualite
-            Etudiant etudiantVisualise = tableauEtudiantsTemporaire[indiceEtudiant];
+            Produit produitVisualise = tableauProduitsTemporaire[indiceEtudiant];
 
             /********************************/
         /*** AFFICHAGE DE L'ETUDIANT  ***/
         /********************************/
 
-     /*   // on a désormais l'objet Etudiant à afficher. le reste est facile :
+       // on a désormais l'objet Etudiant à afficher. le reste est facile :
         // on associe chaque référence au widget qui nous permettra d'afficher l'étudiant
-        txt_nom_etudiant = findViewById(R.id.txt_nom);
-        txt_prenom_etudiant = findViewById(R.id.txt_prenom);
-        txt_annee_etudiant = findViewById(R.id.txt_annee);
+        txt_nom_produit = findViewById(R.id.txt_nom);
+        txt_provenance_produit = findViewById(R.id.txt_provenance);
+        txt_date_produit = findViewById(R.id.txt_date);
 
             // on met enfin à jour le texte des widget avec les valeurs issues de etudiantVisualise
-            txt_prenom_etudiant.setText(etudiantVisualise.prenom);
-            txt_nom_etudiant.setText(etudiantVisualise.nom);
-            txt_annee_etudiant.setText(etudiantVisualise.annee);
+            txt_provenance_produit.setText(produitVisualise.provenanceProduit);
+            txt_nom_produit.setText(produitVisualise.nomProduit);
+            txt_date_produit.setText(produitVisualise.datePeremptionProduit);
 
 
         /*********************************/

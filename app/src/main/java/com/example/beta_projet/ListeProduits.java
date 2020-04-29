@@ -150,7 +150,7 @@ public class ListeProduits extends AppCompatActivity {
                 final String datePeremption = produitAafficher.datePeremptionProduit;
 
                 // on les insère dans les champs correspondants
-                txt_produit_nomProduit.setText( nom);
+                txt_produit_nomProduit.setText(nom +"\nEn provenance de : "+provenance );
                 txt_produit_peremption.setText("Date de peremption: "+ datePeremption);
 
                 /** que se passe-t'il si on click sur l'item en entier (itemView)?

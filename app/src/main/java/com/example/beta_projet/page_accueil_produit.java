@@ -77,7 +77,7 @@ public class page_accueil_produit extends AppCompatActivity {
     }
     private void retour_page_produit()
     {
-        Intent intent = new Intent(this, Date.class);
+        Intent intent = new Intent(this, Produits.class);
         startActivity(intent);
     }
     private void ouvrirAjoutProduit(String nom_asso)

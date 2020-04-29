@@ -10,13 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-public class Date extends AppCompatActivity {
+public class Produits extends AppCompatActivity {
     private Button bouttonretour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_date);
+        setContentView(R.layout.activity_produits);
 
         Spinner monSpinner = (Spinner) findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> monAdapter = ArrayAdapter.createFromResource (this,
