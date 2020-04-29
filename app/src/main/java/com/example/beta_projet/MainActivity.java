@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-            /* les instructions "classiques" : a la création d'une activité, on appelle le constructeur
-        parent et on charge le calque associé */
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

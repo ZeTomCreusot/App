@@ -28,7 +28,7 @@ public class VoirEtudiant extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voir_etudiant);
 
-
+//non  fonctionnelle pour le moment
         /*****************************************/
         /*** RECUPERATION DE L'ETUDIANT CLIQUE ***/
         /*****************************************/
@@ -97,9 +97,7 @@ public class VoirEtudiant extends AppCompatActivity {
             // on le stocke dans une reference etudiantVisualite
             Etudiant etudiantVisualise = tableauEtudiantsTemporaire[indiceEtudiant];
 
-            /********************************/
-            /*** AFFICHAGE DE L'ETUDIANT  ***/
-            /********************************/
+         //AFFICHAGE DE L'ETUDIANT
 
             // on a désormais l'objet Etudiant à afficher. le reste est facile :
             // on associe chaque référence au widget qui nous permettra d'afficher l'étudiant

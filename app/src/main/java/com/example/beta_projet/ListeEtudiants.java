@@ -102,25 +102,15 @@ public class ListeEtudiants extends AppCompatActivity {
             listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_Helphi", "");
         }
 
-        // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
-        // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
+        // Reconstruction d'un tableau d'objets étudiant jusqu'ici stockés sous format json
         Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
-        // reconstitution d'une arrayList a partir du tableau tableauEtudiantsTemporaire
+        //Reconstruction d'une Arraylist
         listestudiants = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
-      //  listestudiants_2 = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
 
-        /*****************************************/
-        /*** AFFICHAGE DE LA LISTE D'ETUDIANTS ***/
-        /*****************************************/
+        //Affichage de la liste d'étudiants
 
-        /** on va synchroniser  la listView avec notre arrayList listeEtudiants
-         *
-         un baseAdapter est un outil puissant mais complexe qui va nous permettre de faire une listView
-         * evoluée, dans laquelle chaque item pourra contenir un formatage poussé.
-         * ceci nécessite de redéfinir quelques méthodes, notamment getView qui permet de formater l'affichage
-         */
+
         BaseAdapter customBaseAdapter = new BaseAdapter() {
-            // Return list view item count.
             @Override
             // a la question "combien d'éléments as-tu ?" on va fournir comme réponse la taille de la listeEtudiants.
             public int getCount() {
@@ -130,9 +120,8 @@ public class ListeEtudiants extends AppCompatActivity {
 
             @Override
             public Object getItem(int i) {
-                // getItem doit renvoyer l'item qui est associé à l'éléméent de liste d'indice i
-                // on renvoie simplement le i^eme elemnt de listeEtudiant, car la listview doit etre
-                // etre synchronisée avec listeEtudiants
+
+                //renvoi du i-ème élément de la liste d'etudiants
                 return listestudiants.get(i);
             }
 

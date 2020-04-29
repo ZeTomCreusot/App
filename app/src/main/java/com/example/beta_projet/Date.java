@@ -29,13 +29,12 @@ public class Date extends AppCompatActivity {
         monAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         monSpinner.setAdapter(monAdapter);
 //test
-        // 5) Association de adapter au spinner
+        // Association de adapter au spinner
         monSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             // View : Un objet de type view est associé au choix fait dans le spinner
             public void onItemSelected(AdapterView<?> spinner2, View view, int position, long
                     id) {
-                // on met ici ce qu’il faut faire lorsqu’un item a ete selectionne
                 //System.out.println("Vous avez selectionné");
                 String ASSO = spinner2.getSelectedItem().toString();
                 //System.out.println("Vous avez selectionné : "+ASSO);

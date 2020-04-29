@@ -37,23 +37,18 @@ public class page_accueil_asso extends AppCompatActivity {
 
 
 
-        // association de nos references avec les objets du layout
         boutonAjouteEtudiant = (Button) findViewById(R.id.btn_ajout_element);
         boutonListeEtudiants = (Button) findViewById(R.id.btn_voir_liste);
         boutonEnleveEtudiant = (Button) findViewById(R.id.btn_supprimer_element);
 
-        // ajout des écouuteurs : quand on va cliqueur sur un bounton on va charger l'activité associée
-        // ajout de l'écouteur sur boutonAjouterEtudiant
         boutonAjouteEtudiant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // ovuerture de l'activité AjoutEtudiant
                // ouvrirAjoutEtudiant(nomAsso);
                 mot_de_passe();
             }
         });
 
-        // ajout de l'écouteur sur boutonAjouterEtudiant
         boutonListeEtudiants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,13 +56,12 @@ public class page_accueil_asso extends AppCompatActivity {
             }
         });
 
-        // ajout de l'écouteur sur boutonAjouterEtudiant
 
         boutonEnleveEtudiant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // ovuerture de l'activité AjoutEtudiant
-                ouvrirSupprimerEtudiant(nomAsso);
+                //ouvrirSupprimerEtudiant(nomAsso);
+                mot_de_passe();
             }
         });
 
