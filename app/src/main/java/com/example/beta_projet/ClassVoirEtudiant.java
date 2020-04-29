@@ -90,9 +90,6 @@ public class ClassVoirEtudiant extends AppCompatActivity {
         // on le stocke dans une reference etudiantVisualite
         Etudiant etudiantVisualise = tableauEtudiantsTemporaire[indice_Etudiant];
 
-
-
-
         TextView prenom_Etudiant=(TextView) findViewById(R.id.prenomEtudiant);
         TextView nom_Etudiant= (TextView)findViewById(R.id.nomEtudiant);
         TextView annee_Etudiant=(TextView)findViewById(R.id.anneeEtudiant);

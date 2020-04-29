@@ -22,7 +22,6 @@ public class Associations extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_associations);
 
-
         bouttonretour = (Button) findViewById(R.id.button_retour);
         bouttonretour.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -163,9 +163,9 @@ public class ListeProduits extends AppCompatActivity {
                         // on affiche un petit message de type Toast, qui arrivera aussi sur l'autre activite
                         Toast.makeText(ListeProduits.this, "vous avez cliqué sur "  + nom, Toast.LENGTH_SHORT).show();
                         // on crée la nouvelle activite
-                        Intent intent = new Intent(ListeProduits.this, VoirEtudiant.class);
+                        Intent intent = new Intent(ListeProduits.this, VoirProduit.class);
                         // on lui passe un parametre : indexEtudiantClique, qui sera l'index de l'item cliqué
-                        intent.putExtra("indexProduitClique", itemIndex);
+                        intent.putExtra("indexProduit", itemIndex);
 
                         intent.putExtra("nomAssoP",nomAsso);
                         startActivity(intent); // lancement de l'activité
