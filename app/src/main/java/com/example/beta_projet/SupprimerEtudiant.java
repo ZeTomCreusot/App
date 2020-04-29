@@ -34,7 +34,7 @@ public class SupprimerEtudiant extends AppCompatActivity {
         //Affichage et récupération du choix du spinner
         Intent in=getIntent();
         Bundle b=in.getExtras();
-        final String nomAsso = (String) b.get("nomAsso");
+        final String nomAsso = (String) b.get("nomAssoA");
         TextView t_nom=(TextView) findViewById(R.id.textView);
         t_nom.setText(nomAsso);
 

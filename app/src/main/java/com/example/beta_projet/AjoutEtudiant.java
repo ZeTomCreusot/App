@@ -28,6 +28,12 @@ public class AjoutEtudiant extends AppCompatActivity {
     ArrayList<Etudiant> listestudiants;
 
 
+        // creation des references boutons et EditText que je vais trouver dans le layout
+        // déclaration, sans initialisation
+
+
+        // listeEtudiants est l'arrayList dans laquelle on charge les objets étudiants de notre appli
+        // la reference est déclarée ici, mais sera initialisée plus tard
 
 
         @Override
@@ -39,7 +45,7 @@ public class AjoutEtudiant extends AppCompatActivity {
             //Affichage et récupération du choix du spinner
             Intent in=getIntent();
             Bundle b=in.getExtras();
-            final String nomAsso = (String) b.get("nomAsso");
+            final String nomAsso = (String) b.get("nomAssoA");
             TextView t_nom=(TextView) findViewById(R.id.textView4);
             t_nom.setText(nomAsso);
 

@@ -16,17 +16,22 @@ public class VoirEtudiant extends AppCompatActivity {
     // creation des references boutons et EditText que je vais trouver dans le layout
     // déclaration, sans initialisation
     Button boutonRetour;
-    EditText txt_nom_etudiant;
-    EditText txt_prenom_etudiant;
-    EditText txt_annee_etudiant;
+    TextView txt_nom_etudiant;
+    TextView txt_prenom_etudiant;
+    TextView txt_annee_etudiant;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /* les instructions "classiques" : a la création d'une activité, on appelle le constructeur
-        parent et on charge le calque associé */
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voir_etudiant);
+
+       // on récupere la session d'acitivte
+        // on recupere ensuite l'indice passé
+        Intent in=getIntent();
+        Bundle bu=in.getExtras();
+        String nomAsso = (String) bu.get("nomAssoAs");
 
 //non  fonctionnelle pour le moment
         /*****************************************/
@@ -40,53 +45,50 @@ public class VoirEtudiant extends AppCompatActivity {
          */
         Intent intent = getIntent();  // on récupere la session d'acitivte
         // on recupere ensuite l'indice passé
-        int indiceEtudiant = intent.getIntExtra("indexEtudiantClique", -1);
+        int indiceEtudiant = intent.getIntExtra("indexEtudiant", -1);
 
         // on récupère les préférences stockées sous la clé mesPrefs :
         SharedPreferences prefsStockees = getSharedPreferences("mesPrefs", MODE_PRIVATE);
-        Gson gson = new Gson(); // on crée un gestionnaire de format json
-        // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
+        Gson gson = new Gson(); // on crée un gestionaire de format json
+        // on extrait la liste referencée par le mot clen_listeEtudiants qu'on avait stocké dans les
         // préférences partagées
-        Intent in=getIntent();
-        Bundle b=in.getExtras();
-        final String nomAsso = (String) b.get("nomAsso");
 
-         String listeEtudiantTxtJson=null;
+         String listeEtudiantTxtJson = null;
             if(nomAsso.equals("BDE"))
             {
-                listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsBDE", "");
+                listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDE", "");
             }
             if(nomAsso.equals("BDS"))
             {
-                listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsBDS", "");
+                listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDS", "");
             }
         if(nomAsso.equals("BDJ"))
         {
-             listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsBDJ", "");
+             listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDJ", "");
         }
         if(nomAsso.equals("BDO"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsBDO", "");
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDO", "");
         }
         if(nomAsso.equals("BDA"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsBDA", "");
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDA", "");
         }
         if(nomAsso.equals("1 pour Tous"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsUPT", "");
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_UPT", "");
         }
         if(nomAsso.equals("Tyrans"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsTyrans", "");
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_Tyrans", "");
         }
         if(nomAsso.equals("EPF Sud Conseil"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsESC", "");
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_ESC", "");
         }
         if(nomAsso.equals("Helphi"))
         {
-            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiantsHelphi", "");
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_Helphi", "");
         }
 
 
@@ -111,6 +113,9 @@ public class VoirEtudiant extends AppCompatActivity {
             txt_annee_etudiant.setText(etudiantVisualise.annee);
 
 
+        /*********************************/
+        /*** GESTION DU BOUTON  RETOUR ***/
+        /*********************************/
 
 
 

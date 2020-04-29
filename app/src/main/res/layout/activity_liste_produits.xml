@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fond_ciel"
-    tools:context=".ListeEtudiants">
+    tools:context=".ListeProduits">
 
 
     <Button
@@ -46,5 +45,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+  
 
 </androidx.constraintlayout.widget.ConstraintLayout>

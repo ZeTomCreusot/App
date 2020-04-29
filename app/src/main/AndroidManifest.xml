@@ -12,6 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".VoirProduit"></activity>
+        <activity android:name=".SupprimerProduit" />
+        <activity android:name=".ListeProduits" />
+        <activity android:name=".AjoutProduit" />
+        <activity android:name=".page_accueil_produit" />
+        <activity android:name=".page_accueil_asso" />
         <activity android:name=".Authentification"></activity>
         <activity android:name=".SplashScreen">
             <intent-filter>
@@ -28,7 +34,7 @@
         <activity android:name=".ListeEtudiants" />
         <activity android:name=".AjoutEtudiant" />
         <activity android:name=".Associations" />
-        <activity android:name=".Date" />
+        <activity android:name=".Produits" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
