@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VoirEtudiant">
-
+    tools:context=".VoirProduit">
 
     <Button
         android:id="@+id/bouton_retour"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginBottom="244dp"
+        android:layout_marginBottom="200dp"
         android:text="Retour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintHorizontal_bias="0.321"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -23,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
-        android:text="Voici les informations de l'étudiant :"
+        android:text="Voici les caractéristiques du produit :"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginTop="40dp"
-        android:text="prenom :"
+        android:text="provenance :"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -45,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginTop="40dp"
-        android:text="année :"
+        android:text="date de peremption :"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -71,18 +70,18 @@
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
-        android:id="@+id/txt_annee"
+        android:id="@+id/txt_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
 
+        android:layout_marginStart="76dp"
         android:layout_marginTop="40dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/txt_prenom"
-        app:layout_constraintTop_toBottomOf="@+id/txt_prenom" />
+        app:layout_constraintStart_toStartOf="@+id/txt_provenance"
+        app:layout_constraintTop_toBottomOf="@+id/txt_provenance" />
 
     <TextView
-        android:id="@+id/txt_prenom"
+        android:id="@+id/txt_provenance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -104,6 +103,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="257dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

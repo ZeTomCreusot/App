@@ -13,7 +13,7 @@
         android:layout_height="179dp"
         android:layout_marginTop="149dp"
         android:clickable="false"
-        android:text="    NOM DE L'APPLI"
+        android:text="         PHI'STOCK"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="#080114"
         app:fontFamily="cursive"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/valider2"
+        android:id="@+id/association"
         android:layout_width="156dp"
         android:layout_height="106dp"
         android:layout_marginTop="47dp"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/valider"
+        android:id="@+id/produit"
         android:layout_width="156dp"
         android:layout_height="106dp"
         android:layout_marginStart="20dp"
@@ -89,9 +89,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/epflogo" />
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,7 @@ public class SupprimerEtudiant extends AppCompatActivity {
         //Affichage et récupération du choix du spinner
         Intent in=getIntent();
         Bundle b=in.getExtras();
-        final String nomAsso = (String) b.get("nomAsso");
+        final String nomAsso = (String) b.get("nomAssoA");
         TextView t_nom=(TextView) findViewById(R.id.textView);
         t_nom.setText(nomAsso);
 
@@ -60,23 +60,48 @@ public class SupprimerEtudiant extends AppCompatActivity {
         Gson gson = new Gson(); // on crée un gestionnaire de format json
         // on extrait la liste referencée par le mot cle_listeEtudiants qu'on avait stocké dans les
         // préférences partagées
-        String listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants", "");
-        // desormais dans listeEtudiantsTxtJson on a tous nos etudiants stockés dans un format json
-        // on reconstruit un tableau d'objets de type étudiants grace à al liste au format json
+        String listeEtudiantTxtJson = null;
+        if(nomAsso.equals("BDE"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDE", "");
+        }
+        if(nomAsso.equals("BDS"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDS", "");
+        }
+        if(nomAsso.equals("BDJ"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDJ", "");
+        }
+        if(nomAsso.equals("BDA"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDA", "");
+        }
+        if(nomAsso.equals("1 pour Tous"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_UPT", "");
+        }
+        if(nomAsso.equals("BDO"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_BDO", "");
+        }
+        if(nomAsso.equals("Tyrans"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_Tyrans", "");
+        }
+        if(nomAsso.equals("EPF Sud Conseil"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_ESC", "");
+        }
+        if(nomAsso.equals("Helphi"))
+        {
+            listeEtudiantTxtJson = prefsStockees.getString("cle_listeEtudiants_Helphi", "");
+        }
         Etudiant[] tableauEtudiantsTemporaire = gson.fromJson(listeEtudiantTxtJson, Etudiant[].class);
         // reconstitution d'une arrayList a partir du tableau tableauEtudiantsTemporaire
         listestudiants = new ArrayList<Etudiant>(Arrays.asList(tableauEtudiantsTemporaire));
 
-        /*****************************************/
-        /*** AFFICHAGE DE LA LISTE D'ETUDIANTS ***/
-        /*****************************************/
-
-        /** on va synchroniser  la listView avec notre arrayList listeEtudiants
-         *
-         * un baseAdapter est un outil puissant mais complexe qui va nous permettre de faire une listView
-         * evoluée, dans laquelle chaque item pourra contenir un formatage poussé.
-         * ceci nécessite de redéfinir quelques méthodes, notamment getView qui permet de formater l'affichage
-         */
+            //Affichage de la liste
         BaseAdapter customBaseAdapter = new BaseAdapter() {
             // Return list view item count.
             @Override
@@ -87,9 +112,7 @@ public class SupprimerEtudiant extends AppCompatActivity {
 
             @Override
             public Object getItem(int i) {
-                // getItem doit renvoyer l'item qui est associé à l'éléméent de liste d'indice i
-                // on renvoie simplement le i^eme elemnt de listeEtudiant, car la listview doit etre
-                // etre synchronisée avec listeEtudiants
+               //renvoi du i-ème élément de la liste d'étudiants
                 return listestudiants.get(i);
             }
 
@@ -110,44 +133,40 @@ public class SupprimerEtudiant extends AppCompatActivity {
                     itemView = LayoutInflater.from(SupprimerEtudiant.this).inflate(R.layout.cadre_item_2_liste, null);
                 }
 
-                // On récupere les 3 cases (image + zone identite + zone age de ce modele)
-                // on va les remplir par la suite avec les valeurs à affcher pour cette ligne
-                // ImageView imageView = (ImageView) itemView.findViewById(R.id.baseUserImage);
+
                 TextView txt_etudiant_nomprenom = (TextView) itemView.findViewById(R.id.txt_nom_prenom);
                 TextView txt_etudiant_annee = (TextView) itemView.findViewById(R.id.txt_annee);
 
-                // on alterne la couleur du fond
-                int colorPos = itemIndex % 2;
+             //   Couleur d'arrière-plan'
+                 int colorPos = itemIndex % 2;
                 if (colorPos == 0) {
                     itemView.setBackgroundColor(Color.parseColor("#FFEEEE"));
                 } else {
                     itemView.setBackgroundColor(Color.parseColor("#DDBBBB"));
                 }
 
-                // on lit les valeur des ressources par rapport à listeetudiants
                 Etudiant etudiantAafficher = (Etudiant) listestudiants.get(itemIndex);
                 final String nom = etudiantAafficher.nom;
                 final String prenom = etudiantAafficher.prenom;
                 final String annee = etudiantAafficher.annee;
 
-                // on les insère dans les champs correspondants
+                //insertion des valeurs dans les champs correspondant
                 txt_etudiant_nomprenom.setText(prenom + " " + nom);
                 txt_etudiant_annee.setText("Annee : " + annee);
 
-                /** que se passe-t'il si on click sur l'item en entier (itemView)?
-                 * on va simplement supprimer cet item de la liste des étudiants
-                 * */
+
+                //Suppression de l'item view si l'écouteur détecte qu'on clique dessus
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        // on récupere l'étudiant cliqué
-                        Etudiant etudiantSupprime = (Etudiant) getItem(itemIndex);
-                        // on affiche un petit message de type Toast, qui annonce l'étudaint supprimé
+                        //Récupération de l'étufdiant sur lequel on a cliqué
+                         Etudiant etudiantSupprime = (Etudiant) getItem(itemIndex);
+                        //Message prévenant que l'étudiant a bien été supprimé (de type toast)
                         Toast.makeText(SupprimerEtudiant.this, "vous avez supprimé " + etudiantSupprime.prenom + " " + etudiantSupprime.nom, Toast.LENGTH_SHORT).show();
-                        // on enleve l'étudiant de la liste;
+                        // remove = enlever l'étudiant
                         listestudiants.remove(etudiantSupprime);
-                        /* important : on annonce a la listview que la liste d'étudiants a partir de laquelle
-                        elle avait été construire a changé. ca va permettre de raffraichir l'affichage */
+
+                        //Rafraîchissement de l'affichage
                         notifyDataSetChanged();
                     }
                 });
@@ -156,19 +175,12 @@ public class SupprimerEtudiant extends AppCompatActivity {
             }
         };
 
-        // de retour dans la methode onCreate :  on récupere enfin la listView pour affichage
         ListView lv_Etudiants = (ListView) findViewById(R.id.listView_etudiants);
-        // on l'associe au customAdapter. et voila
         lv_Etudiants.setAdapter(customBaseAdapter);
 
-        /*********************************/
-        /*** GESTION DU BOUTON  RETOUR ***/
-        /*********************************/
-        /** IMPORTANT  :  contriarement aux autres activites : ici quand on quitte l'activite il ne faut pas
-         * oublier de sauvegarder la liste listeEtudiants car elle a ete modifiée **/
-        // recherche du bouton retour dans le layout
+
+        //Enregistrement de la liste qui a été modifiée avant de quitter l'activité
         boutonRetour = findViewById(R.id.bouton_retour);
-        // ajout de l'écouteur sur boutonAjouterEtudiant
         boutonRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -185,7 +197,43 @@ public class SupprimerEtudiant extends AppCompatActivity {
                 // on transforme la liste d'étudiant en format json :
                 String ListeEtudiantsEnJson = gson.toJson(listestudiants);
                 // on envoie la liste (json) dans la clé cle_listeEtudiants de mesPrefs :
-                prefsEditor.putString("cle_listeEtudiants", ListeEtudiantsEnJson);
+                if(nomAsso.equals("BDE"))
+                {
+                    prefsEditor.putString("cle_listeEtudiants_BDE", ListeEtudiantsEnJson);
+                }
+                if(nomAsso.equals("BDS"))
+                {
+                    prefsEditor.putString("cle_listeEtudiants_BDS", ListeEtudiantsEnJson);
+                }
+                if(nomAsso.equals("BDJ"))
+                {
+                    prefsEditor.putString("cle_listeEtudiants_BDJ", ListeEtudiantsEnJson);
+                }
+                if(nomAsso.equals("BDA"))
+                {
+                    prefsEditor.putString("cle_listeEtudiants_BDA", ListeEtudiantsEnJson);
+                }
+                if(nomAsso.equals("1 pour Tous"))
+                {
+                    prefsEditor.putString("cle_listeEtudiants_UPT", ListeEtudiantsEnJson);
+                }
+                if(nomAsso.equals("BDO"))
+                {
+                    prefsEditor.putString("cle_listeEtudiants_BDO", ListeEtudiantsEnJson);
+                }
+                if(nomAsso.equals("Tyrans"))
+                {
+                    prefsEditor.putString("cle_listeEtudiants_Tyrans", ListeEtudiantsEnJson);
+                }
+                if(nomAsso.equals("EPF Sud Conseil"))
+                {
+                    prefsEditor.putString("cle_listeEtudiants_ESC", ListeEtudiantsEnJson);
+                }
+                if(nomAsso.equals("Helphi"))
+                {
+                    prefsEditor.putString("cle_listeEtudiants_Helphi", ListeEtudiantsEnJson);
+                }
+
                 prefsEditor.commit(); // on enregistre les préférences
                 finish();
             }

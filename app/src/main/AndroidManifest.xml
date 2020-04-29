@@ -2,23 +2,39 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.beta_projet">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="/Beta_projet"
+        android:icon="@drawable/logo_app"
+        android:label="Phi'Stock"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".page_accueil_asso"></activity>
+        <activity android:name=".VoirProduit"></activity>
+        <activity android:name=".SupprimerProduit" />
+        <activity android:name=".ListeProduits" />
+        <activity android:name=".AjoutProduit" />
+        <activity android:name=".page_accueil_produit" />
+        <activity android:name=".page_accueil_asso" />
+        <activity android:name=".Authentification"></activity>
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".page_accueil_asso" />
         <activity android:name=".BDA_A" />
         <activity android:name=".VoirEtudiant" />
         <activity android:name=".BDA_P" />
-
         <activity android:name=".SupprimerEtudiant" />
         <activity android:name=".ListeEtudiants" />
         <activity android:name=".AjoutEtudiant" />
         <activity android:name=".Associations" />
-        <activity android:name=".Date" />
+        <activity android:name=".Produits" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +42,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".MyFirebaseMessaginfService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

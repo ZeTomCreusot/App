@@ -8,14 +8,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+
 import android.widget.Spinner;
 
 public class Associations extends AppCompatActivity {
 
     private Button bouttonretour;
-    public ListView listeMembresAsso;
-    private Button bouttonsuivant;
+   // public ListView listeMembresAsso;
+   // private Button bouttonsuivant;
 
 
     @Override
@@ -23,21 +23,11 @@ public class Associations extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_associations);
 
-        bouttonsuivant = (Button) findViewById(R.id.boutton_suivant);
-
-        bouttonsuivant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                visualiser_la_suite2();
-
-            }
-        });
-
         bouttonretour = (Button) findViewById(R.id.button_retour);
         bouttonretour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                visualiser_la_suite();
+                retour_page_accueil();
 
             }
         });
@@ -54,6 +44,7 @@ public class Associations extends AppCompatActivity {
 
                 if(Asso.equals("Choisissez votre association"))
                 {
+
                 }
                 else
                 {
@@ -113,19 +104,20 @@ public class Associations extends AppCompatActivity {
         });
     }
 
-    private void visualiser_la_suite()
+    private void retour_page_accueil()
     {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
+/*
     private void visualiser_la_suite2()
     {
         Intent intent = new Intent(this, BDA_A.class);
         startActivity(intent);
     }
+ */
 
-    private void afficherListeMembres1(){
+   /* private void afficherListeMembres1(){
         listeMembresAsso= findViewById(R.id.ListeMembresAsso);
         String[] listeMembres=new String[]
                 {
@@ -136,10 +128,11 @@ public class Associations extends AppCompatActivity {
 
         ArrayAdapter<String> arrayAdapteur= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,listeMembres);
         listeMembresAsso.setAdapter(arrayAdapteur);
-    }
+    }*/
 
-    private void afficher_la_suite(String nom_asso)
+    private void afficher_page_Asso(String nom_assoA)
     {
+
         Intent intent = new Intent(this, page_accueil_asso.class);
         intent.putExtra("nomAsso",nom_asso);
         startActivity(intent);

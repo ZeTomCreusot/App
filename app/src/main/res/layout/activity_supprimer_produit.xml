@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fond_ciel"
-    tools:context=".SupprimerEtudiant">
-
+    tools:context=".SupprimerProduit">
 
     <Button
         android:id="@+id/bouton_retour"
@@ -48,4 +46,5 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
