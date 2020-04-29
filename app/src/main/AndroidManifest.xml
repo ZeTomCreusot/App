@@ -26,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".page_accueil_asso" />
         <activity android:name=".BDA_A" />
         <activity android:name=".VoirEtudiant" />
         <activity android:name=".BDA_P" />
