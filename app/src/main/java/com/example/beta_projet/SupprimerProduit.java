@@ -231,11 +231,18 @@ public class SupprimerProduit extends AppCompatActivity {
                 }
 
                 prefsEditor.commit(); // on enregistre les préférences
-                finish();
+                retour (nomAsso);
             }
         });
 
 
     }
+    private void retour(String nom_Asso)
+    {
+        Intent intent = new Intent(SupprimerProduit.this, page_accueil_produit.class);
+        intent.putExtra("nomAssoP", nom_Asso);
+        startActivity(intent);
+    }
 }
+
 

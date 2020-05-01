@@ -82,7 +82,7 @@ public class page_accueil_produit extends AppCompatActivity {
     }
     private void ouvrirAjoutProduit(String nom_asso)
     {
-        Intent intent = new Intent(page_accueil_produit.this, AjoutProduit.class);
+        Intent intent = new Intent(page_accueil_produit.this, AuthentificationP.class);
         intent.putExtra("nomAssoP",nom_asso);
         startActivity(intent);
     }
@@ -94,7 +94,7 @@ public class page_accueil_produit extends AppCompatActivity {
     }
     private void ouvrirSupprimerProduit(String nom_asso)
     {
-        Intent intent = new Intent(page_accueil_produit.this, SupprimerProduit.class);
+        Intent intent = new Intent(page_accueil_produit.this, AthentificationP1.class);
         intent.putExtra("nomAssoP",nom_asso);
         startActivity(intent);
     }

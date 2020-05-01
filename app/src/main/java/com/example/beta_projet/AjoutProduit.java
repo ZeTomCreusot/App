@@ -191,12 +191,19 @@ public class AjoutProduit extends AppCompatActivity {
 
                 /** fin de l'activite, mais en renvoyant un message de type Toast */
                 Toast.makeText(AjoutProduit.this, "vous avez ajouté ce produit : " +  nomProduit, Toast.LENGTH_SHORT).show();
-                finish(); // on ferme l'activite et on revient à l'activite precedente
+
+                retour(nomAsso);
             }
 
 
 
         });
 
+    }
+    private void retour(String nom_Asso)
+    {
+        Intent intent = new Intent(AjoutProduit.this, page_accueil_produit.class);
+        intent.putExtra("nomAssoP", nom_Asso);
+        startActivity(intent);
     }
 }
