@@ -8,17 +8,18 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_app"
-        android:label="Phi'Stock"
+        android:label="Phi&apos;Stock"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VoirProduit"></activity>
+        <activity android:name=".Authentification1" />
+        <activity android:name=".VoirProduit" />
         <activity android:name=".SupprimerProduit" />
         <activity android:name=".ListeProduits" />
         <activity android:name=".AjoutProduit" />
         <activity android:name=".page_accueil_produit" />
         <activity android:name=".page_accueil_asso" />
-        <activity android:name=".Authentification"></activity>
+        <activity android:name=".Authentification" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +29,6 @@
         </activity>
         <activity android:name=".BDA_A" />
         <activity android:name=".VoirEtudiant" />
-        <activity android:name=".BDA_P" />
         <activity android:name=".SupprimerEtudiant" />
         <activity android:name=".ListeEtudiants" />
         <activity android:name=".AjoutEtudiant" />

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Authentification">
+    tools:context=".Authentification1">
 
     <EditText
-        android:id="@+id/Login"
+        android:id="@+id/Login1"
         android:layout_width="250dp"
         android:layout_height="40dp"
         android:layout_marginStart="56dp"
@@ -19,12 +19,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Password"
+        android:id="@+id/Password1"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_marginStart="63dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="60dp"
-        android:layout_marginBottom="523dp"
+        android:layout_marginBottom="456dp"
         android:hint="Mot de passe"
         android:inputType="textPassword"
         android:paddingLeft="60dp"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Login" />
 
     <Button
-        android:id="@+id/test"
+        android:id="@+id/test1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="232dp"
@@ -43,18 +43,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="103dp"
-        android:layout_height="93dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="172dp"
-        android:layout_marginBottom="400dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Password"
-        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,23 +37,25 @@ public class page_accueil_asso extends AppCompatActivity {
         t_nom.setText(nomAsso);
 
 
-
+        //Association des boutosn aux élements du xml
         boutonAjouteEtudiant = (Button) findViewById(R.id.btn_ajout_element);
         boutonListeEtudiants = (Button) findViewById(R.id.btn_voir_liste);
         boutonEnleveEtudiant = (Button) findViewById(R.id.btn_supprimer_element);
 
+        //Si l'utilisateur clique sur le bouton pour ajouter un étudiant, il est redigiré vers une page d'authentification avant de pouvoir ajouter un membre
         boutonAjouteEtudiant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // ouvrirAjoutEtudiant(nomAsso);
-                mot_de_passe();
+               ouvrirAjoutEtudiant(nomAsso); //méthode de démarrage de l'activité authentification
+
             }
         });
 
+        //Si l'utilisateur clique sur le bouton pour voir la liste il est redirigé vers l'activité d'affichage de la liste des étudiants
         boutonListeEtudiants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ouvrirListeEtudiant(nomAsso);
+                ouvrirListeEtudiant(nomAsso); // méthode de démarrage de l'activité listeEtudiant
             }
         });
 
@@ -61,13 +63,9 @@ public class page_accueil_asso extends AppCompatActivity {
         boutonEnleveEtudiant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //ouvrirSupprimerEtudiant(nomAsso);
-                mot_de_passe();
+                ouvrirSupprimerEtudiant(nomAsso); //méthode de démarrage de l'activité authentification1
             }
         });
-
-
-
 
     }
     private void retour_page_asso()
@@ -77,25 +75,21 @@ public class page_accueil_asso extends AppCompatActivity {
     }
     private void ouvrirAjoutEtudiant(String nom_asso)
     {
-        Intent intent = new Intent(page_accueil_asso.this, AjoutEtudiant.class);
-        intent.putExtra("nomAssoA",nom_asso);
+        Intent intent = new Intent(page_accueil_asso.this, Authentification1.class);
+        intent.putExtra("nomAssoA",nom_asso); //on passe le nom de l'asssociation en argument
         startActivity(intent);
     }
     private void ouvrirListeEtudiant(String nom_asso)
     {
         Intent intent = new Intent(page_accueil_asso.this, ListeEtudiants.class);
-        intent.putExtra("nomAssoA",nom_asso);
+        intent.putExtra("nomAssoA",nom_asso); //on passe le nom de l'asssociation en argument
         startActivity(intent);
     }
     private void ouvrirSupprimerEtudiant(String nom_asso)
     {
-        Intent intent = new Intent(page_accueil_asso.this, SupprimerEtudiant.class);
-        intent.putExtra("nomAssoA",nom_asso);
+        Intent intent = new Intent(page_accueil_asso.this, Authentification.class);
+        intent.putExtra("nomAssoA",nom_asso); //on passe le nom de l'asssociation en argument
         startActivity(intent);
     }
-    private void mot_de_passe()
-    {
-        Intent intent = new Intent(this, Authentification.class);
-        startActivity(intent);
-    }
+
 }

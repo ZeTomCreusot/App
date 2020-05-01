@@ -235,10 +235,18 @@ public class SupprimerEtudiant extends AppCompatActivity {
                 }
 
                 prefsEditor.commit(); // on enregistre les préférences
-                finish();
+
+                retour(nomAsso);
             }
         });
 
 
+    }
+
+    private void retour(String nom_Asso)
+    {
+        Intent intent = new Intent(SupprimerEtudiant.this, page_accueil_asso.class);
+        intent.putExtra("nomAssoA", nom_Asso);
+        startActivity(intent);
     }
     }

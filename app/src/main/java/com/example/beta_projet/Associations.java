@@ -14,8 +14,6 @@ import android.widget.Spinner;
 public class Associations extends AppCompatActivity {
 
     private Button bouttonretour;
-   // public ListView listeMembresAsso;
-   // private Button bouttonsuivant;
 
 
     @Override
@@ -24,6 +22,7 @@ public class Associations extends AppCompatActivity {
         setContentView(R.layout.activity_associations);
 
         bouttonretour = (Button) findViewById(R.id.button_retour);
+        //Activation du bouton retour permettant de retourner à l'accueil
         bouttonretour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,16 +31,21 @@ public class Associations extends AppCompatActivity {
             }
         });
 
-        Spinner monSpinner = findViewById(R.id.spinner_Asso);
+        //Spinner des associations
+        Spinner monSpinner = findViewById(R.id.spinner_Asso); //Déclaration du spinner et association à l'élément spinner du xml
         ArrayAdapter<CharSequence> monAdapter = ArrayAdapter.createFromResource(this, R.array.tab_assos, android.R.layout.simple_spinner_item);
         monAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         monSpinner.setAdapter(monAdapter);
+        //Activation des items du spinner
         monSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> spinner_Asso, View view, int position, long id) {
 
-                String Asso = spinner_Asso.getSelectedItem().toString();
+                String Asso = spinner_Asso.getSelectedItem().toString(); //on récupère la valeur de l'item choisi
 
+                //comparaison de l'item choisi, et ouverture de l'activité page_accueil_asso
+                //On souhaite qu'à l'ouverture de la nouvelle activité, on ait gardé en mémoire le choix de l'utilisateur, pour ensuite accéder
+                // aux bonne informations, concernant bien l'association choisie
                 if(Asso.equals("Choisissez votre association"))
                 {
 
@@ -60,86 +64,23 @@ public class Associations extends AppCompatActivity {
         });
     }
 
+    //méthode de retour à l'accueil
     private void retour_page_accueil()
     {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-/*
-    private void visualiser_la_suite2()
-    {
-        Intent intent = new Intent(this, BDA_A.class);
-        startActivity(intent);
-    }
- */
 
-   /* private void afficherListeMembres1(){
-        listeMembresAsso= findViewById(R.id.ListeMembresAsso);
-        String[] listeMembres=new String[]
-                {
-                        "Jean-Louis",
-                        "Jean-Erwan",
-                        "Jean-Michel",
-                };
-
-        ArrayAdapter<String> arrayAdapteur= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,listeMembres);
-        listeMembresAsso.setAdapter(arrayAdapteur);
-    }*/
-
+    //méthode d'ouverture de la page_accueil_asso
     private void afficher_page_Asso(String nom_assoA)
     {
 
         Intent intent = new Intent(this, page_accueil_asso.class);
-        intent.putExtra("nomAsso", nom_assoA);
+        intent.putExtra("nomAssoA", nom_assoA); //on passe en argument de l'intent la valeur de l'item choisi
         startActivity(intent);
     }
 
-    /*private void afficher_la_suiteBDE()
-    {
-        Intent intent = new Intent(this, BDE_A.class);
-        startActivity(intent);
-    }
 
-    private void afficher_la_suiteBDS()
-    {
-        Intent intent = new Intent(this, BDS_A.class);
-        startActivity(intent);
-    }
-    private void afficher_la_suiteBDJ()
-    {
-        Intent intent = new Intent(this, BDJ_A.class);
-        startActivity(intent);
-    }
-    private void afficher_la_suiteBDO()
-    {
-        Intent intent = new Intent(this, BDO_A.class);
-        startActivity(intent);
-    }
-    private void afficher_la_suiteBDA()
-    {
-        Intent intent = new Intent(this, BDA_A.class);
-        startActivity(intent);
-    }
-    private void afficher_la_suiteUPT()
-    {
-        Intent intent = new Intent(this, UPT_A.class);
-        startActivity(intent);
-    }
-    private void afficher_la_suiteTyrans()
-    {
-        Intent intent = new Intent(this, Tyrans_A.class);
-        startActivity(intent);
-    }
-    private void afficher_la_suiteESC()
-    {
-        Intent intent = new Intent(this, ESC_A.class);
-        startActivity(intent);
-    }
-    private void afficher_la_suiteHelphi()
-    {
-        Intent intent = new Intent(this, Helphi_A.class);
-        startActivity(intent);
-    }*/
 
 
 }

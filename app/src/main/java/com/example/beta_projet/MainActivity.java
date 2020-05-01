@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btnProduit = (Button) findViewById(R.id.produit);
         btnAsso = (Button) findViewById(R.id.association);
 
+        //Méthode d'activation du bouton btnasso, permettant d'accéder à la page concernant les associations
         btnAsso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,23 +41,23 @@ public class MainActivity extends AppCompatActivity {
             } //si l'utilisateur clique sur le bouton Association, il est redirigé vers l'activité concernant les association
         });
 
-        // btn.setText("Validez");
+        //Activation du bouton btnProduit
         btnProduit.setOnClickListener(new View.OnClickListener() {
 
             @Override
-             public void onClick(View view) {
-                // System.out.println(produit.getText());
-                visualiser_la_suite();
-            } //Utilisateur redirigé vers l'activité concernant les produits
+             public void onClick(View view) { visualiser_la_suite(); } //Utilisateur redirigé vers l'activité concernant les produits
              });
              }
 
+
+             //Démarrage de la page Produits
              private void visualiser_la_suite()
              {
-             Intent intent = new Intent(this, Produits.class);
-             startActivity(intent);
+             Intent intent = new Intent(this, Produits.class); //déclartion d'un objet intent pour démarrer l'activité
+             startActivity(intent); //méthode de démarrage de l'activité
              }
 
+             //Démarrage de la page Associations
              private void visualiser_la_suite2()
 
              {

@@ -190,7 +190,7 @@ public class AjoutEtudiant extends AppCompatActivity {
 
                     /** fin de l'activite, mais en renvoyant un message de type Toast */
                     Toast.makeText(AjoutEtudiant.this, "vous avez ajouté " + prenom + " " + nom, Toast.LENGTH_SHORT).show();
-                    finish(); // on ferme l'activite et on revient à l'activite precedente
+                    retour(nomAsso);
                 }
 
 
@@ -198,4 +198,10 @@ public class AjoutEtudiant extends AppCompatActivity {
             });
 
         }
+    private void retour(String nom_Asso)
+    {
+        Intent intent = new Intent(AjoutEtudiant.this, page_accueil_asso.class);
+        intent.putExtra("nomAssoA", nom_Asso);
+        startActivity(intent);
+    }
     }
